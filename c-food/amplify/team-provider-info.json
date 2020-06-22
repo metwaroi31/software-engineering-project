@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cfood-dev-141016-authRole",
+            "UnauthRoleArn": "arn:aws:iam::271203939204:role/amplify-cfood-dev-141016-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::271203939204:role/amplify-cfood-dev-141016-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-cfood-dev-141016-deployment",
+            "UnauthRoleName": "amplify-cfood-dev-141016-unauthRole",
+            "StackName": "amplify-cfood-dev-141016",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:271203939204:stack/amplify-cfood-dev-141016/6d6288f0-b457-11ea-a3d0-02e842d24598",
+            "AmplifyAppId": "d2auunmm737uop"
+        },
+        "categories": {
+            "auth": {
+                "cfood3335313e": {}
+            }
+        }
+    }
+}
