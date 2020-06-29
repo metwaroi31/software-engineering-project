@@ -16,5 +16,23 @@
                 "cfood3335313e": {}
             }
         }
+    },
+    "cfood": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cfood-cfood-152337-authRole",
+            "UnauthRoleArn": "arn:aws:iam::141337097441:role/amplify-cfood-cfood-152337-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::141337097441:role/amplify-cfood-cfood-152337-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-cfood-cfood-152337-deployment",
+            "UnauthRoleName": "amplify-cfood-cfood-152337-unauthRole",
+            "StackName": "amplify-cfood-cfood-152337",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:141337097441:stack/amplify-cfood-cfood-152337/d700b770-b9e1-11ea-8061-020de04cec9a",
+            "AmplifyAppId": "d2ks4ko1no9h1e"
+        },
+        "categories": {
+            "auth": {
+                "cfood3335313e": {}
+            }
+        }
     }
 }

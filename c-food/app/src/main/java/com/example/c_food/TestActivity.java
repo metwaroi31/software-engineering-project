@@ -19,7 +19,7 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
 public class TestActivity extends AppCompatActivity {
-    private String COGNITO_POOL_ID = "ap-southeast-1:af7662cd-e55f-4cb6-936d-1f66082b1d72";
+    private String COGNITO_POOL_ID = "ap-southeast-1:549f3666-696b-4b65-8b7a-c615f955c41f";
     private Regions COGNITO_REGION = Regions.AP_SOUTHEAST_1;
     private AmazonDynamoDBClient dbClient;
     private Table dbTable;
