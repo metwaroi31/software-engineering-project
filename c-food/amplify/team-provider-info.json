@@ -1,0 +1,38 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cfood-dev-141016-authRole",
+            "UnauthRoleArn": "arn:aws:iam::271203939204:role/amplify-cfood-dev-141016-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::271203939204:role/amplify-cfood-dev-141016-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-cfood-dev-141016-deployment",
+            "UnauthRoleName": "amplify-cfood-dev-141016-unauthRole",
+            "StackName": "amplify-cfood-dev-141016",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:271203939204:stack/amplify-cfood-dev-141016/6d6288f0-b457-11ea-a3d0-02e842d24598",
+            "AmplifyAppId": "d2auunmm737uop"
+        },
+        "categories": {
+            "auth": {
+                "cfood3335313e": {}
+            }
+        }
+    },
+    "cfood": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cfood-cfood-152337-authRole",
+            "UnauthRoleArn": "arn:aws:iam::141337097441:role/amplify-cfood-cfood-152337-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::141337097441:role/amplify-cfood-cfood-152337-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-cfood-cfood-152337-deployment",
+            "UnauthRoleName": "amplify-cfood-cfood-152337-unauthRole",
+            "StackName": "amplify-cfood-cfood-152337",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:141337097441:stack/amplify-cfood-cfood-152337/d700b770-b9e1-11ea-8061-020de04cec9a",
+            "AmplifyAppId": "d2ks4ko1no9h1e"
+        },
+        "categories": {
+            "auth": {
+                "cfood3335313e": {}
+            }
+        }
+    }
+}
