@@ -8,10 +8,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amazonaws.amplify.generated.graphql.CreateTodoMutation;
+import com.amazonaws.amplify.generated.graphql.ListTodosQuery;
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.amazonaws.mobileconnectors.appsync.sigv4.CognitoUserPoolsAuthProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Document;
@@ -25,6 +27,8 @@ import com.apollographql.apollo.exception.ApolloException;
 import javax.annotation.Nonnull;
 
 import type.CreateTodoInput;
+import type.ModelStringInput;
+import type.ModelTodoFilterInput;
 
 public class TestActivity extends AppCompatActivity {
     private String COGNITO_POOL_ID = "ap-southeast-1:549f3666-696b-4b65-8b7a-c615f955c41f";
@@ -33,6 +37,7 @@ public class TestActivity extends AppCompatActivity {
     private Table dbTable;
     private String TABLE_NAME = "testDB";
     private AWSAppSyncClient mAWSAppSyncClient;
+
     private GraphQLCall.Callback<CreateTodoMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateTodoMutation.Data>() {
         @Override
         public void onResponse(@Nonnull Response<CreateTodoMutation.Data> response) {
@@ -42,6 +47,17 @@ public class TestActivity extends AppCompatActivity {
         @Override
         public void onFailure(@Nonnull ApolloException e) {
             Log.e("Error", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<ListTodosQuery.Data> todosCallback = new GraphQLCall.Callback<ListTodosQuery.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<ListTodosQuery.Data> response) {
+            Log.i("Results", response.data().listTodos().items().toString());
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("ERROR", e.toString());
         }
     };
     @Override
@@ -75,6 +91,17 @@ public class TestActivity extends AppCompatActivity {
                 .enqueue(mutationCallback);
 
     }
+
+    public void demoQuery(View view) {
+        ModelStringInput modelStringFilterInput = ModelStringInput.builder().eq("Use AppSync").build();
+
+        ModelTodoFilterInput createTodoInput = ModelTodoFilterInput.builder()
+                .name(modelStringFilterInput).build();
+        mAWSAppSyncClient.query(ListTodosQuery.builder().filter(createTodoInput).build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(todosCallback);
+    }
+
     private class CreateItemAsyncTask extends AsyncTask<Document, Void, Void> {
         @Override
         protected Void doInBackground(Document... documents) {
