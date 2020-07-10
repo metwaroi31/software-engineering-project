@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"cfoodmain9fb35ba8": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
