@@ -2,12 +2,10 @@ type Admin @model{
   id: ID!
   username: String! @unique
   password: String!
-  user: [Message] @connection (keyName: "byAdmin", fields ["id"])
+  user: [Message] @connection (name: "Message")
 }
 
 type Message @model{
- @key(name: "byUser", fields:["userID", "adminID"])
- @key(name: "byAdmin", fields:["adminID", "userID"])
  userID: ID!
  adminID: ID!
  user: User! @connection (fields: ["userID"])
@@ -54,8 +52,6 @@ type Food @model {
 }
 
 type FavoriteFood @model {
- @key(name: "byUser", fields:["userID", "foodID"])
- @key(name: "byFood", fields:["foodID", "userID"])
  userID: ID!
  foodID: ID!
  user: User! @connection (fields: ["userID"])
@@ -63,8 +59,6 @@ type FavoriteFood @model {
 }
 
 type FoodMeal @model {
- @key(name: "byMeal", fields:["mealID", "foodID"])
- @key(name: "byFood", fields:["foodID", "mealID"])
  foodID: ID!
  mealID: ID!
  food: Food! @connection (fields: ["foodID"])
@@ -80,8 +74,6 @@ type Meal @model {
 }
 
 type Add @model {
- @key(name: "byMeal", fields:["mealID", "userID"])
- @key(name: "byUser", fields:["userID", "mealID"])
  mealID: ID!
  userID: ID!
  meal: Meal! @connection(fields: ["mealID"])
@@ -96,8 +88,6 @@ type Ingredients @model {
 }
 
 type IngredientsFood @model {
- @key(name: "byIngredient", fields:["ingredientID", "foodID"])
- @key(name: "byFood", fields:["foodID", "ingredientID"])
  ingredientID: ID!
  foodID: ID!
  ingredient: Ingredients! @connection(fields: ["ingredientID"])
@@ -118,8 +108,6 @@ type Macronutrients @model {
 }
 
 type MacronutrientsFood @model {
- @key(name: "byMacronutrient", fields:["macronutrientID", "foodID"])
- @key(name: "byFood", fields:["foodID", "macronutrientID"])
  macronutrientID: ID!
  foodID: ID!
  macronutrient: Macronutrients! @connection(fields: ["macronutrientID"])
@@ -135,8 +123,6 @@ type Vitamins @model {
 }
 
 type VitaminsFood @model {
- @key(name: "byVitamin", fields:["vitaminID", "foodID"])
- @key(name: "byFood", fields:["foodID", "vitaminID"])
  vitaminID: ID!
  foodID: ID!
  vitamin: Vitamins! @connection(fields: ["vitaminID"])
