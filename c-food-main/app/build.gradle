@@ -40,5 +40,10 @@ dependencies {
     //Amplify auth dependencies
     implementation 'com.amplifyframework:aws-auth-cognito:1.0.0'
 
+    //Toasty
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    //AweSomeValidation
+    implementation 'com.github.thyrlian:AwesomeValidation:v4.2'
 
 }

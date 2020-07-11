@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
+
+import es.dmoral.toasty.Toasty;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -49,10 +52,30 @@ public class LoginActivity extends AppCompatActivity {
                 result -> {
                     if (result.isSignInComplete()) {
                         gotoMainActivity();
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toasty.success(getApplicationContext(),"Login successfully" ,Toast.LENGTH_SHORT,true).show();
+                            }
+                        });
+                    }
+                    else {
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toasty.error(getApplicationContext(),"Wrong username or password!", Toast.LENGTH_SHORT,true).show();
+                            }
+                        });
+
                     }
                     Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
                 },
-                error -> Log.e("AuthQuickstart", error.toString())
+                error -> {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toasty.error(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT,true).show();
+                        }
+                    });
+                    Log.e("AuthQuickstart", error.toString());
+                }
         );
 
     }
