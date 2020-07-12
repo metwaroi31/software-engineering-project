@@ -1,0 +1,58 @@
+{
+    "UserAgent": "aws-amplify-cli/2.0",
+    "Version": "1.0",
+    "auth": {
+        "plugins": {
+            "awsCognitoAuthPlugin": {
+                "UserAgent": "aws-amplify-cli/0.1.0",
+                "Version": "0.1.0",
+                "IdentityManager": {
+                    "Default": {}
+                },
+                "CredentialsProvider": {
+                    "CognitoIdentity": {
+                        "Default": {
+                            "PoolId": "ap-southeast-1:60ab7509-7a59-415e-9169-34911ac99c65",
+                            "Region": "ap-southeast-1"
+                        }
+                    }
+                },
+                "CognitoUserPool": {
+                    "Default": {
+                        "PoolId": "ap-southeast-1_9dpEN65Bq",
+                        "AppClientId": "79bqbjlr9pn3nc52u758hihbju",
+                        "AppClientSecret": "sm0ck6fvb1r0clk1ce7i10ih2a0ub5t80skla8l0siat38o9gm9",
+                        "Region": "ap-southeast-1"
+                    }
+                },
+                "Auth": {
+                    "Default": {
+                        "authenticationFlowType": "USER_SRP_AUTH"
+                    }
+                },
+                "AppSync": {
+                    "Default": {
+                        "ApiUrl": "https://klxl5ukirrfo7kw4f3oew2lxlm.appsync-api.ap-southeast-1.amazonaws.com/graphql",
+                        "Region": "ap-southeast-1",
+                        "AuthMode": "API_KEY",
+                        "ApiKey": "da2-uw35o46nwvahzazhp2wze5q7ua",
+                        "ClientDatabasePrefix": "cfoodmain_API_KEY"
+                    }
+                }
+            }
+        }
+    },
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "cfoodmain": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://klxl5ukirrfo7kw4f3oew2lxlm.appsync-api.ap-southeast-1.amazonaws.com/graphql",
+                    "region": "ap-southeast-1",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-uw35o46nwvahzazhp2wze5q7ua"
+                }
+            }
+        }
+    }
+}
