@@ -1,0 +1,1567 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateAdmin {
+  onCreateAdmin {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateAdmin {
+  onUpdateAdmin {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteAdmin {
+  onDeleteAdmin {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateMessage {
+  onCreateMessage {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateMessage {
+  onUpdateMessage {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteMessage {
+  onDeleteMessage {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateCategories {
+  onCreateCategories {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCategories {
+  onUpdateCategories {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCategories {
+  onDeleteCategories {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateFood {
+  onCreateFood {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateFood {
+  onUpdateFood {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteFood {
+  onDeleteFood {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateFavoriteFood {
+  onCreateFavoriteFood {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateFavoriteFood {
+  onUpdateFavoriteFood {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteFavoriteFood {
+  onDeleteFavoriteFood {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateFoodMeal {
+  onCreateFoodMeal {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateFoodMeal {
+  onUpdateFoodMeal {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteFoodMeal {
+  onDeleteFoodMeal {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateMeal {
+  onCreateMeal {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateMeal {
+  onUpdateMeal {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteMeal {
+  onDeleteMeal {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateAdd {
+  onCreateAdd {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateAdd {
+  onUpdateAdd {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteAdd {
+  onDeleteAdd {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateIngredients {
+  onCreateIngredients {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateIngredients {
+  onUpdateIngredients {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteIngredients {
+  onDeleteIngredients {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateIngredientsFood {
+  onCreateIngredientsFood {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateIngredientsFood {
+  onUpdateIngredientsFood {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteIngredientsFood {
+  onDeleteIngredientsFood {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateMacronutrients {
+  onCreateMacronutrients {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateMacronutrients {
+  onUpdateMacronutrients {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteMacronutrients {
+  onDeleteMacronutrients {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateMacronutrientsFood {
+  onCreateMacronutrientsFood {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateMacronutrientsFood {
+  onUpdateMacronutrientsFood {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteMacronutrientsFood {
+  onDeleteMacronutrientsFood {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateVitamins {
+  onCreateVitamins {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateVitamins {
+  onUpdateVitamins {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteVitamins {
+  onDeleteVitamins {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateVitaminsFood {
+  onCreateVitaminsFood {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateVitaminsFood {
+  onUpdateVitaminsFood {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteVitaminsFood {
+  onDeleteVitaminsFood {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}

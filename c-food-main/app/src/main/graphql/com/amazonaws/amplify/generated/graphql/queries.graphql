@@ -1,0 +1,932 @@
+# this is an auto generated file. This will be overwritten
+query GetAdmin($id: ID!) {
+  getAdmin(id: $id) {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListAdmins(
+  $filter: ModelAdminFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdmins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMessage($id: ID!) {
+  getMessage(id: $id) {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListMessages(
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      userID
+      adminID
+      user {
+        id
+        username
+        password
+        fullname
+        dob
+        gender
+        email
+        phone
+        logindate
+        createdAt
+        updatedAt
+      }
+      admin {
+        id
+        username
+        password
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetCategories($id: ID!) {
+  getCategories(id: $id) {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+query ListCategoriess(
+  $filter: ModelCategoriesFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCategoriess(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      food {
+        nextToken
+      }
+      name
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetFood($id: ID!) {
+  getFood(id: $id) {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListFoods(
+  $filter: ModelFoodFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFoods(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetFavoriteFood($id: ID!) {
+  getFavoriteFood(id: $id) {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListFavoriteFoods(
+  $filter: ModelFavoriteFoodFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFavoriteFoods(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      userID
+      foodID
+      user {
+        id
+        username
+        password
+        fullname
+        dob
+        gender
+        email
+        phone
+        logindate
+        createdAt
+        updatedAt
+      }
+      food {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetFoodMeal($id: ID!) {
+  getFoodMeal(id: $id) {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListFoodMeals(
+  $filter: ModelFoodMealFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFoodMeals(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      foodID
+      mealID
+      food {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      meal {
+        id
+        name
+        calories
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMeal($id: ID!) {
+  getMeal(id: $id) {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListMeals(
+  $filter: ModelMealFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMeals(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetAdd($id: ID!) {
+  getAdd(id: $id) {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListAdds($filter: ModelAddFilterInput, $limit: Int, $nextToken: String) {
+  listAdds(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      mealID
+      userID
+      meal {
+        id
+        name
+        calories
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        username
+        password
+        fullname
+        dob
+        gender
+        email
+        phone
+        logindate
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetIngredients($id: ID!) {
+  getIngredients(id: $id) {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListIngredientss(
+  $filter: ModelIngredientsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIngredientss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetIngredientsFood($id: ID!) {
+  getIngredientsFood(id: $id) {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListIngredientsFoods(
+  $filter: ModelIngredientsFoodFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIngredientsFoods(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      ingredientID
+      foodID
+      ingredient {
+        id
+        name
+        isvegeterian
+        createdAt
+        updatedAt
+      }
+      food {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMacronutrients($id: ID!) {
+  getMacronutrients(id: $id) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListMacronutrientss(
+  $filter: ModelMacronutrientsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMacronutrientss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMacronutrientsFood($id: ID!) {
+  getMacronutrientsFood(id: $id) {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListMacronutrientsFoods(
+  $filter: ModelMacronutrientsFoodFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMacronutrientsFoods(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      macronutrientID
+      foodID
+      macronutrient {
+        id
+        name
+        value
+        unit
+        createdAt
+        updatedAt
+      }
+      food {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetVitamins($id: ID!) {
+  getVitamins(id: $id) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListVitaminss(
+  $filter: ModelVitaminsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVitaminss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetVitaminsFood($id: ID!) {
+  getVitaminsFood(id: $id) {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListVitaminsFoods(
+  $filter: ModelVitaminsFoodFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVitaminsFoods(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      vitaminID
+      foodID
+      vitamin {
+        id
+        name
+        value
+        unit
+        createdAt
+        updatedAt
+      }
+      food {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
