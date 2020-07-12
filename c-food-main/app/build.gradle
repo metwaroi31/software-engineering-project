@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.amazonaws.appsync' // REQUIRED
 android {
     compileSdkVersion 28
-
     defaultConfig {
         applicationId "com.example.c_food_main"
         minSdkVersion 28
@@ -33,6 +32,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //Base SDK
+    implementation 'com.amazonaws:aws-android-sdk-core:2.15.+'
+    //AppSync SDK
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.9.+'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation('com.amazonaws:aws-android-sdk-iot:2.15.+@aar') { transitive = true }
+
+    //For AWSMobileClient only:
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.+'
 
     //Amplify dependencies
     implementation 'com.amplifyframework:core:1.0.0'
@@ -45,5 +54,6 @@ dependencies {
 
     //AweSomeValidation
     implementation 'com.github.thyrlian:AwesomeValidation:v4.2'
+
 
 }

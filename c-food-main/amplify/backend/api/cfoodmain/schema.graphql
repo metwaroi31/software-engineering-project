@@ -1,0 +1,132 @@
+type Admin @model {
+    id: ID!
+    username: String!
+    password: String!
+    user: [Message] @connection (keyName: "byUser" ,fields: ["id"])
+}
+
+type Message @model  @key(name: "byUser", fields: ["userID", "adminID"])
+@key(name: "byAdmin", fields: ["adminID", "userID"]){
+    userID: ID!
+    adminID: ID!
+    user: User! @connection (fields: ["userID"])
+    admin: Admin! @connection (fields: ["adminID"])
+}
+
+enum Gender {
+    Male
+    Female
+}
+
+type User @model {
+    id: ID!
+    username: String!
+    password: String!
+    fullname: String
+    dob: AWSDateTime
+    gender: Gender
+    email: String
+    phone: String
+    logindate: AWSDateTime
+    admin: [Message] @connection (keyName: "byUser" ,fields: ["id"])
+    food: [FavoriteFood] @connection(keyName: "byUser", fields: ["id"] )
+    meal: [Add] @connection(keyName: "byUser", fields: ["id"])
+}
+
+type Categories @model {
+    id: ID!
+    food: [Food] @connection (keyName: "byCategory", fields: ["id"])
+    name: String!
+}
+
+type Food @model @key(name: "byCategory", fields: ["categoryID", "name"]) {
+    id: ID!
+    name: String!
+    weight: Float!
+    categoryID: ID!
+    user: [FavoriteFood] @connection(keyName: "byFood", fields: ["id"])
+    meal: [FoodMeal] @connection(keyName: "byFood", fields: ["id"])
+    ingredient: [IngredientsFood] @connection(keyName: "byFood", fields: ["id"])
+    macronutrient: [MacronutrientsFood] @connection(keyName: "byFood", fields: ["id"])
+    vitamin: [VitaminsFood] @connection(keyName: "byFood", fields: ["id"])
+
+}
+
+type FavoriteFood @model @key(name: "byUser", fields: ["userID", "foodID"])
+@key(name: "byFood", fields: ["foodID", "userID"]) {
+    userID: ID!
+    foodID: ID!
+    user: User! @connection (fields: ["userID"])
+    food: Food! @connection (fields: ["foodID"])
+}
+
+type FoodMeal @model @key(name: "byFood", fields: ["foodID", "mealID"])
+@key(name: "byMeal", fields: ["mealID", "foodID"]) {
+    foodID: ID!
+    mealID: ID!
+    food: Food! @connection (fields: ["foodID"])
+    meal: Meal! @connection (fields: ["mealID"])
+}
+
+type Meal @model {
+    id: ID!
+    name: String!
+    calories: Int!
+    food: [FoodMeal] @connection(keyName: "byMeal", fields: ["id"])
+    user: [Add] @connection(keyName: "byMeal", fields: ["id"])
+}
+
+type Add @model  @key(name: "byUser", fields: ["userID", "mealID"])
+@key(name: "byMeal", fields: ["mealID", "userID"]) {
+    mealID: ID!
+    userID: ID!
+    meal: Meal! @connection(fields: ["mealID"])
+    user: User! @connection(fields: ["userID"])
+}
+
+type Ingredients @model {
+    id: ID!
+    name: String!
+    isvegeterian: Boolean!
+    food: [IngredientsFood] @connection(keyName: "byIngredient", fields: ["id"])
+}
+
+type IngredientsFood @model @key(name: "byIngredient", fields: ["ingredientID", "foodID"])
+@key(name: "byFood", fields: ["foodID", "ingredientID"])  {
+    ingredientID: ID!
+    foodID: ID!
+    ingredient: Ingredients! @connection(fields: ["ingredientID"])
+    food: Food! @connection(fields: ["foodID"])
+}
+
+type Macronutrients @model {
+    id: ID!
+    name: String!
+    value: String!
+    unit: String!
+    food: [MacronutrientsFood] @connection(keyName: "byMacronutrient", fields: ["id"])
+}
+
+type MacronutrientsFood @model @key(name: "byMacronutrient", fields: ["macronutrientID", "foodID"])
+@key(name: "byFood", fields: ["foodID", "macronutrientID"]) {
+    macronutrientID: ID!
+    foodID: ID!
+    macronutrient: Macronutrients! @connection(fields: ["macronutrientID"])
+    food: Food! @connection(fields: ["foodID"])
+}
+
+type Vitamins @model {
+    id: ID!
+    name: String!
+    value: Float!
+    unit: String!
+    food: [VitaminsFood] @connection(keyName: "byVitamins", fields: ["id"])
+}
+
+type VitaminsFood @model @key(name: "byVitamins", fields: ["vitaminID", "foodID"])
+@key(name: "byFood", fields: ["foodID", "vitaminID"]) {
+    vitaminID: ID!
+    foodID: ID!
+    vitamin: Vitamins! @connection(fields: ["vitaminID"])
+    food: Food! @connection(fields: ["foodID"])
+}

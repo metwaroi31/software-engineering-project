@@ -1,0 +1,1702 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateAdmin(
+  $input: CreateAdminInput!
+  $condition: ModelAdminConditionInput
+) {
+  createAdmin(input: $input, condition: $condition) {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateAdmin(
+  $input: UpdateAdminInput!
+  $condition: ModelAdminConditionInput
+) {
+  updateAdmin(input: $input, condition: $condition) {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteAdmin(
+  $input: DeleteAdminInput!
+  $condition: ModelAdminConditionInput
+) {
+  deleteAdmin(input: $input, condition: $condition) {
+    id
+    username
+    password
+    user {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateMessage(
+  $input: CreateMessageInput!
+  $condition: ModelMessageConditionInput
+) {
+  createMessage(input: $input, condition: $condition) {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateMessage(
+  $input: UpdateMessageInput!
+  $condition: ModelMessageConditionInput
+) {
+  updateMessage(input: $input, condition: $condition) {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteMessage(
+  $input: DeleteMessageInput!
+  $condition: ModelMessageConditionInput
+) {
+  deleteMessage(input: $input, condition: $condition) {
+    userID
+    adminID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    admin {
+      id
+      username
+      password
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    username
+    password
+    fullname
+    dob
+    gender
+    email
+    phone
+    logindate
+    admin {
+      items {
+        userID
+        adminID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    food {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateCategories(
+  $input: CreateCategoriesInput!
+  $condition: ModelCategoriesConditionInput
+) {
+  createCategories(input: $input, condition: $condition) {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateCategories(
+  $input: UpdateCategoriesInput!
+  $condition: ModelCategoriesConditionInput
+) {
+  updateCategories(input: $input, condition: $condition) {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteCategories(
+  $input: DeleteCategoriesInput!
+  $condition: ModelCategoriesConditionInput
+) {
+  deleteCategories(input: $input, condition: $condition) {
+    id
+    food {
+      items {
+        id
+        name
+        weight
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    name
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateFood(
+  $input: CreateFoodInput!
+  $condition: ModelFoodConditionInput
+) {
+  createFood(input: $input, condition: $condition) {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateFood(
+  $input: UpdateFoodInput!
+  $condition: ModelFoodConditionInput
+) {
+  updateFood(input: $input, condition: $condition) {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteFood(
+  $input: DeleteFoodInput!
+  $condition: ModelFoodConditionInput
+) {
+  deleteFood(input: $input, condition: $condition) {
+    id
+    name
+    weight
+    categoryID
+    user {
+      items {
+        userID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    meal {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    ingredient {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    macronutrient {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    vitamin {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateFavoriteFood(
+  $input: CreateFavoriteFoodInput!
+  $condition: ModelFavoriteFoodConditionInput
+) {
+  createFavoriteFood(input: $input, condition: $condition) {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateFavoriteFood(
+  $input: UpdateFavoriteFoodInput!
+  $condition: ModelFavoriteFoodConditionInput
+) {
+  updateFavoriteFood(input: $input, condition: $condition) {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteFavoriteFood(
+  $input: DeleteFavoriteFoodInput!
+  $condition: ModelFavoriteFoodConditionInput
+) {
+  deleteFavoriteFood(input: $input, condition: $condition) {
+    userID
+    foodID
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateFoodMeal(
+  $input: CreateFoodMealInput!
+  $condition: ModelFoodMealConditionInput
+) {
+  createFoodMeal(input: $input, condition: $condition) {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateFoodMeal(
+  $input: UpdateFoodMealInput!
+  $condition: ModelFoodMealConditionInput
+) {
+  updateFoodMeal(input: $input, condition: $condition) {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteFoodMeal(
+  $input: DeleteFoodMealInput!
+  $condition: ModelFoodMealConditionInput
+) {
+  deleteFoodMeal(input: $input, condition: $condition) {
+    foodID
+    mealID
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateMeal(
+  $input: CreateMealInput!
+  $condition: ModelMealConditionInput
+) {
+  createMeal(input: $input, condition: $condition) {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateMeal(
+  $input: UpdateMealInput!
+  $condition: ModelMealConditionInput
+) {
+  updateMeal(input: $input, condition: $condition) {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteMeal(
+  $input: DeleteMealInput!
+  $condition: ModelMealConditionInput
+) {
+  deleteMeal(input: $input, condition: $condition) {
+    id
+    name
+    calories
+    food {
+      items {
+        foodID
+        mealID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    user {
+      items {
+        mealID
+        userID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateAdd(
+  $input: CreateAddInput!
+  $condition: ModelAddConditionInput
+) {
+  createAdd(input: $input, condition: $condition) {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateAdd(
+  $input: UpdateAddInput!
+  $condition: ModelAddConditionInput
+) {
+  updateAdd(input: $input, condition: $condition) {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteAdd(
+  $input: DeleteAddInput!
+  $condition: ModelAddConditionInput
+) {
+  deleteAdd(input: $input, condition: $condition) {
+    mealID
+    userID
+    meal {
+      id
+      name
+      calories
+      food {
+        nextToken
+      }
+      user {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      username
+      password
+      fullname
+      dob
+      gender
+      email
+      phone
+      logindate
+      admin {
+        nextToken
+      }
+      food {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateIngredients(
+  $input: CreateIngredientsInput!
+  $condition: ModelIngredientsConditionInput
+) {
+  createIngredients(input: $input, condition: $condition) {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateIngredients(
+  $input: UpdateIngredientsInput!
+  $condition: ModelIngredientsConditionInput
+) {
+  updateIngredients(input: $input, condition: $condition) {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteIngredients(
+  $input: DeleteIngredientsInput!
+  $condition: ModelIngredientsConditionInput
+) {
+  deleteIngredients(input: $input, condition: $condition) {
+    id
+    name
+    isvegeterian
+    food {
+      items {
+        ingredientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateIngredientsFood(
+  $input: CreateIngredientsFoodInput!
+  $condition: ModelIngredientsFoodConditionInput
+) {
+  createIngredientsFood(input: $input, condition: $condition) {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateIngredientsFood(
+  $input: UpdateIngredientsFoodInput!
+  $condition: ModelIngredientsFoodConditionInput
+) {
+  updateIngredientsFood(input: $input, condition: $condition) {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteIngredientsFood(
+  $input: DeleteIngredientsFoodInput!
+  $condition: ModelIngredientsFoodConditionInput
+) {
+  deleteIngredientsFood(input: $input, condition: $condition) {
+    ingredientID
+    foodID
+    ingredient {
+      id
+      name
+      isvegeterian
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateMacronutrients(
+  $input: CreateMacronutrientsInput!
+  $condition: ModelMacronutrientsConditionInput
+) {
+  createMacronutrients(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateMacronutrients(
+  $input: UpdateMacronutrientsInput!
+  $condition: ModelMacronutrientsConditionInput
+) {
+  updateMacronutrients(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteMacronutrients(
+  $input: DeleteMacronutrientsInput!
+  $condition: ModelMacronutrientsConditionInput
+) {
+  deleteMacronutrients(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        macronutrientID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateMacronutrientsFood(
+  $input: CreateMacronutrientsFoodInput!
+  $condition: ModelMacronutrientsFoodConditionInput
+) {
+  createMacronutrientsFood(input: $input, condition: $condition) {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateMacronutrientsFood(
+  $input: UpdateMacronutrientsFoodInput!
+  $condition: ModelMacronutrientsFoodConditionInput
+) {
+  updateMacronutrientsFood(input: $input, condition: $condition) {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteMacronutrientsFood(
+  $input: DeleteMacronutrientsFoodInput!
+  $condition: ModelMacronutrientsFoodConditionInput
+) {
+  deleteMacronutrientsFood(input: $input, condition: $condition) {
+    macronutrientID
+    foodID
+    macronutrient {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateVitamins(
+  $input: CreateVitaminsInput!
+  $condition: ModelVitaminsConditionInput
+) {
+  createVitamins(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateVitamins(
+  $input: UpdateVitaminsInput!
+  $condition: ModelVitaminsConditionInput
+) {
+  updateVitamins(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteVitamins(
+  $input: DeleteVitaminsInput!
+  $condition: ModelVitaminsConditionInput
+) {
+  deleteVitamins(input: $input, condition: $condition) {
+    id
+    name
+    value
+    unit
+    food {
+      items {
+        vitaminID
+        foodID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateVitaminsFood(
+  $input: CreateVitaminsFoodInput!
+  $condition: ModelVitaminsFoodConditionInput
+) {
+  createVitaminsFood(input: $input, condition: $condition) {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateVitaminsFood(
+  $input: UpdateVitaminsFoodInput!
+  $condition: ModelVitaminsFoodConditionInput
+) {
+  updateVitaminsFood(input: $input, condition: $condition) {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteVitaminsFood(
+  $input: DeleteVitaminsFoodInput!
+  $condition: ModelVitaminsFoodConditionInput
+) {
+  deleteVitaminsFood(input: $input, condition: $condition) {
+    vitaminID
+    foodID
+    vitamin {
+      id
+      name
+      value
+      unit
+      food {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    food {
+      id
+      name
+      weight
+      categoryID
+      user {
+        nextToken
+      }
+      meal {
+        nextToken
+      }
+      ingredient {
+        nextToken
+      }
+      macronutrient {
+        nextToken
+      }
+      vitamin {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
