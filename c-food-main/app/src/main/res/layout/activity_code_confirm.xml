@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CodeConfirm"
+    android:background="#fff"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/c_food_removebg_preview"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="20dp"
+        android:transitionName="logo_image"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/logo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wellcome Back"
+        android:layout_marginBottom="10dp"
+        android:transitionName="logo_name"
+        android:textSize="40sp"
+        android:textColor="#000"
+        android:fontFamily="@font/cherry_swash_bold">
+
+    </TextView>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/slogan_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input OTP code here:"
+
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:hint="Input OTP code"
+        android:transitionName="username_tran"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/Login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#000"
+        android:text="Confirm"
+        android:textColor="#fff"
+        android:transitionName="button_tran">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:fontFamily="@font/advent_pro_semibold"
+        android:text="C-Food"
+        android:textAlignment="center"
+        android:textColor="@color/browser_actions_text_color" />
+</LinearLayout>
