@@ -14,9 +14,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
+
+import es.dmoral.toasty.Toasty;
 
 public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN = 5000;
@@ -24,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     Animation topAnim , bottomAnim;
     ImageView image;
     TextView logo, slogan;
+    boolean isAuth;
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -41,19 +45,59 @@ public class SplashActivity extends AppCompatActivity {
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
         slogan.setAnimation(bottomAnim);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
-               Pair[] pairs = new Pair[2];
-               pairs[0] = new Pair<View, String>(image, "logo_image");
-               pairs[1] = new Pair<View, String>(logo, "logo_text");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this,pairs);
-            startActivity(intent,options.toBundle());
+              checkSession();
             }
         },SPLASH_SCREEN);
 
+    }
+    private void checkSession() {
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    AWSCognitoAuthSession cognitoAuthSession = (AWSCognitoAuthSession) result;
+                    switch (cognitoAuthSession.getIdentityId().getType()) {
+                        case SUCCESS:
+                            goToMainActivity();
+                            Log.i("AuthQuickStart", "IdentityId: " + cognitoAuthSession.getIdentityId().getValue());
+                            break;
+                        case FAILURE:
+                            goToLoginActivity();
+                            Log.i("AuthQuickStart", "IdentityId not present because: " + cognitoAuthSession.getIdentityId().getError().toString());
+
+                    }
+                },
+
+                error -> Log.e("AuthQuickStart", error.toString())
+        );
+    }
+    private void goToMainActivity() {
+
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intent);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toasty.success(getApplicationContext(), "Welcome, " + Amplify.Auth.getCurrentUser().getUsername() + " !", Toast.LENGTH_SHORT, true).show();
+            }
+        });
+
+    }
+
+    private void goToLoginActivity() {
+        Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+        //  startActivity(intent);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Pair[] pairs = new Pair[2];
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(logo, "logo_text");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this,pairs);
+                startActivity(intent,options.toBundle());
+            }
+        });
     }
 }
 
