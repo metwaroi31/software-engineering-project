@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.amazonaws.amplify.generated.graphql.CreateFoodMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
+import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
+import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onResponse(@NonNull Response<ListFoodsQuery.Data> response) {
             Log.i("Results of query", response.data().listFoods().items().toString());
-            Toast.makeText(getApplicationContext(), "query successfully", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), "query successfully", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         logoutButton = findViewById(R.id.logout_btn);
         initDatabase();
+        clearCache();
         query();
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,10 +87,24 @@ public class MainActivity extends AppCompatActivity {
                 .context(getApplicationContext())
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
+
     }
     public void query(){
         mAWSAppSyncClient.query(ListFoodsQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(todosCallback);
     }
+    public void clearCache() {
+        try {
+            mAWSAppSyncClient.clearCaches(
+                    ClearCacheOptions.builder()
+                            .clearQueries() // clear the query cache
+                            .clearMutations() // clear the mutations queue
+                            .clearSubscriptions() // clear the subscriptions metadata stored for Delta Sync
+                            .build());
+        } catch (AWSAppSyncClientException e) {
+            e.printStackTrace();
+        }
 
+    }
 }
