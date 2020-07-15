@@ -20,8 +20,8 @@ public class ConfirmCodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_code);
         User newUser = getUserFromIntent();
-        codeEditText = findViewById(R.id.verifiedcode_editText);
-        confirmButton = findViewById(R.id.confirmcode_btn);
+        codeEditText = findViewById(R.id.verifiedCode_editText);
+        confirmButton = findViewById(R.id.confirmCode_btn);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
