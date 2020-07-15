@@ -53,7 +53,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/username_editText"
+                android:id="@+id/usernameSignUp"
                 android:layout_height="wrap_content"
                 android:inputType="text">
 
@@ -73,7 +73,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/email_editText"
+                android:id="@+id/emailSignUp"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress">
 
@@ -94,7 +94,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/password_editText"
+                android:id="@+id/passwordSignUp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 >
@@ -107,14 +107,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Signup_btn"
+        android:id="@+id/signUp_btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"
         android:text="GO"
-
         android:textColor="#fff"
-        android:transitionName="button_tran" />
+      />
 
     <Button
         android:id="@+id/loginback_btn"

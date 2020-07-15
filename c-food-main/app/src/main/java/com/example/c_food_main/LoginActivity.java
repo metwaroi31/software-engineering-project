@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     Button callSignUp;
     ImageView image;
     TextView logoText;
-    TextInputEditText username, password;
+    TextInputEditText usernameEditText, passwordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +57,15 @@ public class LoginActivity extends AppCompatActivity {
                 Pair[] pairs = new Pair[8];
                 pairs[0] = new Pair<View, String>(image, "logo_image");
                 pairs[1] = new Pair<View, String>(logoText, "logo_text");
-                pairs[2] = new Pair<View, String>(username, "username_tran");
-                pairs[3] = new Pair<View, String>(password, "password_tran");
+                pairs[2] = new Pair<View, String>(usernameEditText, "username_tran");
+                pairs[3] = new Pair<View, String>(passwordEditText, "password_tran");
                 pairs[4] = new Pair<View, String>(loginBtn, "button_tran");
                 pairs[5] = new Pair<View, String>(callSignUp, "login_signup_tran");
                 pairs[6] = new Pair<View, String>(callSignUp, "button_tran");
                 pairs[7] = new Pair<View, String>(callSignUp, "button_signup_tran");
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this,pairs);
                 startActivity(intent,options.toBundle());
+                startActivity(intent);
             }
         });
 

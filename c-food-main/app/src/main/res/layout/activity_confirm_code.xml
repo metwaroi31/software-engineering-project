@@ -43,25 +43,23 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/verifiedcode_editText"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Code OTP"
+            android:hint="OTP"
 
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/verifiedCode_editText"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm"
-            android:id="@+id/confirmcode_btn"
+            android:id="@+id/confirmCode_btn"
             android:background="#000"
             android:textColor="#fff"
             android:layout_marginTop="10dp"
