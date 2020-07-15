@@ -47,13 +47,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username_editText"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Username"
             android:transitionName="username_tran"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -70,6 +70,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
