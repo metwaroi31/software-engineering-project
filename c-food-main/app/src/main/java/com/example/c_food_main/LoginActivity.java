@@ -9,7 +9,6 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,11 +16,10 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText usernameEditText, passwordEditText;
-    Button loginBtn, signUpBtn;
-    Button callSignUp, Backlogin , SignUp;
+    Button loginBtn;
+    Button callSignUp;
     ImageView image;
-    TextView logoText, sloganText;
+    TextView logoText;
     TextInputEditText username, password;
 
     @Override
@@ -34,13 +32,9 @@ public class LoginActivity extends AppCompatActivity {
 
         image=findViewById(R.id.logo_image);
         logoText=findViewById(R.id.logo_name);
-       // sloganText=findViewById(R.id.textView1);
         username=findViewById(R.id.username_editText);
         password=findViewById(R.id.password_editText);
         loginBtn=findViewById(R.id.login_btn);
-        Backlogin =findViewById(R.id.loginback_btn);
-        SignUp = findViewById(R.id.Signup_btn);
-// Thụy xem lại chỗ này dùm tui nha sao gọi ra để dưới chạy animation ko đc chạy app nó ko lên
         callSignUp = findViewById(R.id.signup_btn);
 
 
@@ -48,11 +42,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
- //               startActivity(intent);
+
                 Pair[] pairs = new Pair[8];
                 pairs[0] = new Pair<View, String>(image, "logo_image");
                 pairs[1] = new Pair<View, String>(logoText, "logo_text");
-             //   pairs[1] = new Pair<View, String>(sloganText, "logo_desc");
                 pairs[2] = new Pair<View, String>(username, "username_tran");
                 pairs[3] = new Pair<View, String>(password, "password_tran");
                 pairs[4] = new Pair<View, String>(loginBtn, "button_tran");
