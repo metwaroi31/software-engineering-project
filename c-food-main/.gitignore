@@ -26,3 +26,5 @@ aws-exports.js
 amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
+amplifyconfiguration.json
+awsconfiguration.json
