@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText usernameEditText, passwordEditText;
     Button loginBtn, signUpBtn;
-    Button callSignUp;
+    Button callSignUp, Backlogin , SignUp;
     ImageView image;
     TextView logoText, sloganText;
     TextInputEditText username, password;
@@ -32,12 +32,14 @@ public class LoginActivity extends AppCompatActivity {
 
         //hooks
 
-//        image=findViewById(R.id.logo_name);
-//        logoText=findViewById(R.id.logo_name);
-//        sloganText=findViewById(R.id.textView1);
-//        username=findViewById(R.id.username_editText);
-//        password=findViewById(R.id.email_editText);
-//        loginBtn=findViewById(R.id.login_btn);
+        image=findViewById(R.id.logo_image);
+        logoText=findViewById(R.id.logo_name);
+       // sloganText=findViewById(R.id.textView1);
+        username=findViewById(R.id.username_editText);
+        password=findViewById(R.id.password_editText);
+        loginBtn=findViewById(R.id.login_btn);
+        Backlogin =findViewById(R.id.loginback_btn);
+        SignUp = findViewById(R.id.Signup_btn);
 // Thụy xem lại chỗ này dùm tui nha sao gọi ra để dưới chạy animation ko đc chạy app nó ko lên
         callSignUp = findViewById(R.id.signup_btn);
 
@@ -46,8 +48,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(intent);
-
+ //               startActivity(intent);
+                Pair[] pairs = new Pair[8];
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(logoText, "logo_text");
+             //   pairs[1] = new Pair<View, String>(sloganText, "logo_desc");
+                pairs[2] = new Pair<View, String>(username, "username_tran");
+                pairs[3] = new Pair<View, String>(password, "password_tran");
+                pairs[4] = new Pair<View, String>(loginBtn, "button_tran");
+                pairs[5] = new Pair<View, String>(callSignUp, "login_signup_tran");
+                pairs[6] = new Pair<View, String>(callSignUp, "button_tran");
+                pairs[7] = new Pair<View, String>(callSignUp, "button_signup_tran");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this,pairs);
+                startActivity(intent,options.toBundle());
             }
         });
     }

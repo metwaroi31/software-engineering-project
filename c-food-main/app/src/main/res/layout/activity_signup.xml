@@ -42,7 +42,7 @@
         android:layout_marginBottom="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username_editText"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
@@ -53,6 +53,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/username_editText"
                 android:layout_height="wrap_content"
                 android:inputType="text">
 
@@ -63,7 +64,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
 
-            android:id="@+id/email_editText"
+
             android:hint="Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/email_editText"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress">
 
@@ -82,7 +84,7 @@
         <com.google.android.material.textfield.TextInputLayout
 
             android:hint="Password"
-            android:id="@+id/password_editText"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
@@ -92,6 +94,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/password_editText"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 >
@@ -104,19 +107,21 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/Signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GO"
-        android:transitionName="button_tran"
         android:background="#000"
+        android:text="GO"
 
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:transitionName="button_tran" />
+
     <Button
+        android:id="@+id/loginback_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Login"
         android:background="#00000000"
-        android:transitionName="button_signup_tran"
-        />
+        android:text="Already have an account? Login"
+        android:transitionName="button_signup_tran" />
 
 </LinearLayout>
