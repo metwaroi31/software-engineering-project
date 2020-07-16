@@ -43,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
     private GraphQLCall.Callback<ListFoodsQuery.Data> todosCallback = new GraphQLCall.Callback<ListFoodsQuery.Data>() {
         @Override
         public void onResponse(@NonNull Response<ListFoodsQuery.Data> response) {
-        response.data().listFoods().items().forEach(item -> {
-            Log.i("Foodname", item.name());
-        });
-//            Toast.makeText(getApplicationContext(), "query successfully", Toast.LENGTH_LONG).show();
+            response.data().listFoods().items().forEach(item -> {
+            Log.i("Foodname", item.name() + item.getClass().toString());
+            });
         }
-
         @Override
         public void onFailure(@NonNull ApolloException e) {
             Log.i("ERROR OF QUERY", e.toString());
@@ -91,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
     }
-    public void query(){
+    public void query() {
         mAWSAppSyncClient.query(ListFoodsQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(todosCallback);
@@ -107,6 +105,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (AWSAppSyncClientException e) {
             e.printStackTrace();
         }
-
     }
 }
