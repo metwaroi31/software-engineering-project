@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Profile">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_frofile"
+                    android:icon="@drawable/icon_profile"
+                    android:title="Share" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout_icon"
+                    android:title="Logout" />
+
+            </menu>
+
+        </item>
+
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Communicate">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/icon_share"
+                    android:title="Share" />
+                <item
+                    android:id="@+id/nav_rate-us"
+                    android:icon="@drawable/icon_rateus"
+                    android:title="Rate Us" />
+
+            </menu>
+
+        </item>
+
+
+    </group>
+</menu>
