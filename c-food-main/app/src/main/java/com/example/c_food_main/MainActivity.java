@@ -16,9 +16,14 @@ import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
 import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Food;
 import com.apollographql.apollo.GraphQLCall;
 
 import com.amazonaws.amplify.generated.graphql.CreateFavoriteFoodMutation;
@@ -59,8 +64,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         logoutButton = findViewById(R.id.logout_btn);
-        initDatabase();
-        clearCache();
+        try {
+            initDatabase();
+        } catch (AmplifyException e) {
+            e.printStackTrace();
+        }
+        //clearCache();
         query();
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,28 +91,30 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,LoginActivity.class);
         startActivity(intent);
     }
-    private void initDatabase () {
-        mAWSAppSyncClient = AWSAppSyncClient.builder()
-                .context(getApplicationContext())
-                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
-                .build();
+    private void initDatabase () throws AmplifyException {
+        try {
+            // Add these lines to add the AWSApiPlugin plugins
+            Amplify.addPlugin(new AWSApiPlugin());
+//            Amplify.configure(getApplicationContext());
 
+            Log.i("MyAmplifyApp", "Initialized Amplify");
+        } catch (AmplifyException error) {
+            Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
+        }
     }
     public void query() {
-        mAWSAppSyncClient.query(ListFoodsQuery.builder().build())
-                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
-                .enqueue(todosCallback);
+        Food food = Food.builder()
+                .name("banh mi")
+                .weight((float) 123.4)
+                .categoryId("123").build();
+        Amplify.API.mutate(
+                ModelMutation.create(food),
+                response -> Log.i("MyAmplifyApp", "Added Todo with id: " + response.getData().getId()),
+                error -> Log.e("MyAmplifyApp", "Create failed", error)
+        );
+
     }
     public void clearCache() {
-        try {
-            mAWSAppSyncClient.clearCaches(
-                    ClearCacheOptions.builder()
-                            .clearQueries() // clear the query cache
-                            .clearMutations() // clear the mutations queue
-                            .clearSubscriptions() // clear the subscriptions metadata stored for Delta Sync
-                            .build());
-        } catch (AWSAppSyncClientException e) {
-            e.printStackTrace();
-        }
+
     }
 }
