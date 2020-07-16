@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
     private GraphQLCall.Callback<ListFoodsQuery.Data> todosCallback = new GraphQLCall.Callback<ListFoodsQuery.Data>() {
         @Override
         public void onResponse(@NonNull Response<ListFoodsQuery.Data> response) {
-            Log.i("Results of query", response.data().listFoods().items().toString());
+        response.data().listFoods().items().forEach(item -> {
+            Log.i("Foodname", item.name());
+        });
 //            Toast.makeText(getApplicationContext(), "query successfully", Toast.LENGTH_LONG).show();
         }
 
