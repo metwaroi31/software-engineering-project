@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
 
+        navigationView.getMenu().clear();
+        navigationView.inflateMenu(R.menu.main_menu);
 
         setSupportActionBar(toolbar);
 
@@ -125,17 +127,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        /*itemlogout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-     //           logOut();
-//               Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//               startActivity(intent);
-                return false;
-            }
-        });*/
+
     }
-    
+
+
 
     private void logOut(){
         Amplify.Auth.signOut(
