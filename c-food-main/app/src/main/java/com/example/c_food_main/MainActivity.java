@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
 
+        navigationView.getMenu().clear();
+        navigationView.inflateMenu(R.menu.main_menu);
 
         setSupportActionBar(toolbar);
 
@@ -86,39 +88,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 view.startAnimation(animTranslate);
             }
         });
-
-        /*itemlogout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-     //           logOut();
-//               Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//               startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_logout:
+                        logOut();
+                        break;
+                }
                 return false;
             }
-        });*/
+        });
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-         super.onOptionsItemSelected(item);
-         switch (item.getItemId()) {
-             case R.id.nav_logout:
-             {
-                 logOut();
-              Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-               startActivity(intent);
-                 return true;
-             }
-         }
-        return true;
-    }
 
     private void logOut(){
         Amplify.Auth.signOut(
