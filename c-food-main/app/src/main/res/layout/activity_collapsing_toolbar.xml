@@ -27,6 +27,7 @@
                 android:scaleType="centerCrop">
 
             </ImageView>
+
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -43,24 +44,24 @@
         android:tint="@android:color/white"
         app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|right|end"
-        android:layout_marginEnd="32dp">
+        android:layout_marginEnd="32dp"/>
 
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-           />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lorem"
             android:textSize="20sp"
             android:lineSpacingExtra="8sp"
-            android:padding="16dp"
-            >
+            android:padding="16dp">
 
         </TextView>
+        
+    </androidx.core.widget.NestedScrollView>
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
