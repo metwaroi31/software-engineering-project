@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
+import com.apollographql.apollo.api.Response;
 import com.example.c_food_main.model.FoodModel;
 
 import java.util.ArrayList;
@@ -18,9 +20,9 @@ import java.util.ArrayList;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<FoodModel> foodList;
+    private Response<ListFoodsQuery.Data> foodList;
 
-    FoodAdapter(Context context, ArrayList<FoodModel> list) {
+    FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
         this.mContext = context;
         this.foodList = list;
 
@@ -48,15 +50,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         calories = holder.item_calories;
         likeBtn = holder.likeBtn;
 
-        image.setImageResource(foodList.get(position).getImage());
-        name.setText(foodList.get(position).getName());
-        calories.setText(foodList.get(position).getCalories());
+//        image.setImageResource(foodList.data().listFoods().items().get(position).getImage());
+        name.setText(foodList.data().listFoods().items().get(position).name());
+        calories.setText(Double.toString((foodList.data().listFoods().items().get(position).weight())));
 
     }
 
     @Override
     public int getItemCount() {
-        return foodList.size();
+        return foodList.data().listFoods().items().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
