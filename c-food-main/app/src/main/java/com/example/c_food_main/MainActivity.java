@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
+                Intent intent = new Intent(MainActivity.this,SearchFoodActivity.class);
+                startActivity(intent);
             }
         });
         RelativeLikemeal.setOnClickListener(new View.OnClickListener() {
