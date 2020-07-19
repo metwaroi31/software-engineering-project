@@ -9,7 +9,9 @@ import android.app.Application;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.mobile.config.AWSConfiguration;
@@ -22,11 +24,15 @@ import com.example.c_food_main.model.FoodModel;
 
 import java.util.ArrayList;
 
+import type.CreateFavoriteFoodInput;
+import type.ModelFoodFilterInput;
+import type.ModelStringInput;
+
 public class SearchFoodActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private AWSAppSyncClient mAWSAppSyncClient;
     ArrayList<FoodModel> foodList = new ArrayList<FoodModel>();
-
+    private String inputSearch = "asdkjlfbqiuwlrengfl/awjfhguiawheriuwerhf";
     private Response<ListFoodsQuery.Data> returnedData;
     private GraphQLCall.Callback<ListFoodsQuery.Data> todosCallback = new GraphQLCall.Callback<ListFoodsQuery.Data>() {
         @Override
@@ -54,19 +60,11 @@ public class SearchFoodActivity extends AppCompatActivity {
 
         initDatabase();
         query();
-//        recyclerView = findViewById(R.id.recyclerViewFoodList);
-//        foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//        RecyclerView.LayoutManager rvLiLayoutManager = layoutManager;
-//
-//        recyclerView.setLayoutManager(rvLiLayoutManager);
-//        foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-//        FoodAdapter adapter = new FoodAdapter(getApplicationContext(),foodList);
-//        recyclerView.setAdapter(adapter);
-
     }
     public void query() {
-        mAWSAppSyncClient.query(ListFoodsQuery.builder().build())
+        ModelStringInput modelStringInput = ModelStringInput.builder().contains(inputSearch).build();
+        ModelFoodFilterInput modelFoodFilterInput = ModelFoodFilterInput.builder().name(modelStringInput).build();
+        mAWSAppSyncClient.query(ListFoodsQuery.builder().filter(modelFoodFilterInput ).build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(todosCallback);
     }
@@ -82,14 +80,14 @@ public class SearchFoodActivity extends AppCompatActivity {
         RecyclerView.LayoutManager rvLiLayoutManager = layoutManager;
         recyclerView.setLayoutManager(rvLiLayoutManager);
 
-        returnedData.data().listFoods().items().forEach(item -> {
-//            foodList.add(item);
-            foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-            foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-            Log.i("Foodname", item.name() + item.getClass().toString());
-        });
         FoodAdapter adapter = new FoodAdapter(getApplicationContext(),returnedData);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    public void search(View view) {
+        TextView helloTextView = (TextView) findViewById(R.id.search_bar);
+        inputSearch = helloTextView.getText().toString();
+        query();
     }
 }
