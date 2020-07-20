@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".activity_collapsing_toolbar" />
+        <activity android:name=".FoodDetailActivity" />
         <activity android:name=".SearchFoodActivity" />
         <activity android:name=".ConfirmCodeActivity" />
         <activity android:name=".SignupActivity" />

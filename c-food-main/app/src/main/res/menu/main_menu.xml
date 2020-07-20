@@ -10,7 +10,7 @@
                 <item
                     android:id="@+id/nav_frofile"
                     android:icon="@drawable/icon_profile"
-                    android:title="Share" />
+                    android:title="Profile" />
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/logout_icon"

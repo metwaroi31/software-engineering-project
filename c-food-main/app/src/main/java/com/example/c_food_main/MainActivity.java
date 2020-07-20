@@ -190,6 +190,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 logOut();
                 break;
             case R.id.nav_frofile:
+                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+                startActivity(intent);
+                break;
         }
         return true;
     }
