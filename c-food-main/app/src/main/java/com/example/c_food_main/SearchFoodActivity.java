@@ -9,6 +9,9 @@ import android.app.Application;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
@@ -91,5 +94,12 @@ public class SearchFoodActivity extends AppCompatActivity {
         FoodAdapter adapter = new FoodAdapter(getApplicationContext(),returnedData);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.search_bar,menu);
+        return true;
     }
 }
