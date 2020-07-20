@@ -7,19 +7,18 @@
     tools:context=".FoodDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appBarLayout"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolBar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:contentScrim="@color/colorPrimary"
-            app:title="Food name"
-            >
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Food name">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -38,31 +37,964 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_send_24"
-        android:tint="@android:color/white"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#689CEC"
+        android:src="@drawable/icon_favorite"
+        android:tint="#fe91ca"
         app:layout_anchor="@id/appBarLayout"
-        app:layout_anchorGravity="bottom|right|end"
-        android:layout_marginEnd="32dp"/>
+        app:layout_anchorGravity="bottom|right|end" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        
-        
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lorem"
-            android:textSize="20sp"
-            android:lineSpacingExtra="8sp"
-            android:padding="16dp">
+            android:background="#f5f5f5"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        </TextView>
-        
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/croissant_one"
+                android:padding="10dp"
+                android:text="Nutrition Facts"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="35sp">
+
+            </TextView>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+
+                    android:fontFamily="@font/cherry_swash"
+                    android:text="Serving Size"
+                    android:textAlignment="textStart"
+                    android:textColor="#000"
+                    android:textSize="18sp">
+
+                </TextView>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:fontFamily="@font/antic"
+                    android:text="200g"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="18sp">
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+
+                    android:fontFamily="@font/cherry_swash_bold"
+                    android:text="Amount Per Serving"
+                    android:textAlignment="textStart"
+                    android:textColor="#000"
+                    android:textSize="18sp">
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="% Daily Value"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Calories"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="200"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="Calories from Fat"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="8"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Total Fat"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="1g"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="1%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="  Saturated Fat"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0g"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="1%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="  Trans Fat"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Cholesterol "
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0mg"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Sodium"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="7mg"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Toal Carbohydrate"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="36g"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="12%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="  Dietary Fiber"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="11g"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="45%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="  Sugars"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="6g"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="0%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash_bold"
+                        android:text="Protein"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="13g"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="Vitamin A"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="1%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="Vitamin C"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="1%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#086972" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="Calcium"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/antic"
+                        android:text="4%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210dp">
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="Iron"
+                        android:textAlignment="textStart"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/antic"
+                        android:text="24%"
+                        android:textAlignment="textEnd"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginRight="0dp"
+                        android:fontFamily="@font/cherry_swash"
+                        android:text="From C-Food with love"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
