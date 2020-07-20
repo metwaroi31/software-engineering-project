@@ -21,6 +21,9 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.amazonaws.amplify.generated.graphql.CreateFoodMutation;
+import com.amazonaws.amplify.generated.graphql.CreateIngredientsMutation;
+import com.amazonaws.amplify.generated.graphql.CreateMacronutrientsMutation;
+import com.amazonaws.amplify.generated.graphql.CreateVitaminsMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
@@ -47,7 +50,10 @@ import com.example.c_food_main.model.User;
 import javax.annotation.Nonnull;
 
 import type.CreateFoodInput;
+import type.CreateIngredientsInput;
+import type.CreateMacronutrientsInput;
 import type.CreateUserInput;
+import type.CreateVitaminsInput;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -61,6 +67,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         public void onFailure(@NonNull ApolloException e) {
             Log.i("ERROR OF QUERY", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<CreateMacronutrientsMutation.Data> mutationMacronutrientsCallback = new GraphQLCall.Callback<CreateMacronutrientsMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateMacronutrientsMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<CreateIngredientsMutation.Data> mutationIngredientsCallback = new GraphQLCall.Callback<CreateIngredientsMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateIngredientsMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<CreateVitaminsMutation.Data> mutationVitaminsCallback = new GraphQLCall.Callback<CreateVitaminsMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateVitaminsMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
         }
     };
     DrawerLayout drawerLayout;
@@ -96,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         final Animation animTranslate = AnimationUtils.loadAnimation(this,R.anim.anim_translate);
-
+        addSamplingData();
         RelativeLayout RelativeSearch =(RelativeLayout) findViewById(R.id.relative_search);
         RelativeLayout RelativeLikemeal =(RelativeLayout) findViewById(R.id.relative_likemeal);
         RelativeLayout RelativeMeal =(RelativeLayout) findViewById(R.id.relative_meal);
@@ -196,25 +235,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return true;
     }
+    private void addSamplingData() {
+        CreateMacronutrientsInput createMacronutrientsInput = CreateMacronutrientsInput.builder()
+                                                                .name("macro")
+                                                                .value("12")
+                                                                .unit("unit").build();
+        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput).build())
+                .enqueue(mutationMacronutrientsCallback);
+        CreateMacronutrientsInput createMacronutrientsInput2 = CreateMacronutrientsInput.builder()
+                .name("macro2")
+                .value("123")
+                .unit("unit2").build();
+        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput2).build())
+                .enqueue(mutationMacronutrientsCallback);
+        CreateIngredientsInput createIngredientsInput = CreateIngredientsInput.builder()
+                .name("ingredients")
+                .isvegeterian(false)
+                .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput).build())
+                .enqueue(mutationIngredientsCallback);
+        CreateIngredientsInput createIngredientsInput2 = CreateIngredientsInput.builder()
+                .name("ingredients2")
+                .isvegeterian(true)
+                .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput2).build())
+                .enqueue(mutationIngredientsCallback);
+        CreateVitaminsInput createVitaminsInput = CreateVitaminsInput.builder()
+                                                    .name("A")
+                                                    .unit("unit")
+                                                    .value(12).build();
+        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput).build())
+                .enqueue(mutationVitaminsCallback);
+        CreateVitaminsInput createVitaminsInput2 = CreateVitaminsInput.builder()
+                .name("A")
+                .unit("unit")
+                .value(12).build();
+        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput2).build())
+                .enqueue(mutationVitaminsCallback);
+    }
 }
-//        logoutButton = findViewById(R.id.logout_btn);
-//
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                logOut();
-//            }
-//        });
-//    }
-//    private void logOut() {
-//        Amplify.Auth.signOut(
-//                () -> {
-//                    goToLoginActivity();
-//                    Log.i("AuthQuickstart", "Signed out globally");
-//                },
-//                error -> Log.e("AuthQuickstart", error.toString())
-//        );
-//    }
-//    private void goToLoginActivity() {
-//        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-//        startActivity(intent);
