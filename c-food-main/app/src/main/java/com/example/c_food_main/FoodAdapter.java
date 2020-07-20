@@ -9,15 +9,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.apollographql.apollo.api.Response;
-import com.example.c_food_main.model.FoodModel;
 
-import java.util.ArrayList;
+
+import es.dmoral.toasty.Toasty;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
@@ -82,11 +83,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int po;
-                    po = getAdapterPosition();
-                    Log.i("ViewHolderPosition", Integer.toString(po));
-                    String foodName = foodList.data().listFoods().items().get(po).name();
-                    String foodId = foodList.data().listFoods().items().get(po).id();
+                    int currentPosition = getAdapterPosition();
+                    Log.i("ViewHolderPosition", Integer.toString(currentPosition));
+                    String foodName = foodList.data().listFoods().items().get(currentPosition).name();
+                    String foodId = foodList.data().listFoods().items().get(currentPosition).id();
                     Intent intent = new Intent(v.getContext(),FoodDetailActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("Food_Name", foodName);
@@ -94,8 +94,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     v.getContext().startActivity(intent);
                 }
             });
+            likeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int currentPosition = getAdapterPosition();
+                    String foodName = foodList.data().listFoods().items().get(currentPosition).name();
+                    Toasty.success(v.getContext(), "Add " + foodName + " into favorite food" , Toast.LENGTH_SHORT, true).show();
+                }
+            });
         }
-
-
     }
 }
