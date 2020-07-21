@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".reset_passwrd_activity"></activity>
+        <activity android:name=".activity_forget_password" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".FoodDetailActivity" />
         <activity android:name=".SearchFoodActivity" />
         <activity android:name=".ConfirmCodeActivity" />
