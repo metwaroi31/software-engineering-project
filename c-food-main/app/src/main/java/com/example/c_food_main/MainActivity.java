@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
-
+        toolbar.setTitle("");
         navigationView.getMenu().clear();
         navigationView.inflateMenu(R.menu.main_menu);
 
@@ -101,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         RelativeLayout RelativeLikemeal =(RelativeLayout) findViewById(R.id.relative_likemeal);
         RelativeLayout RelativeMeal =(RelativeLayout) findViewById(R.id.relative_meal);
         RelativeLayout RelativeCategory =(RelativeLayout) findViewById(R.id.relative_category);
+        RelativeLayout RelativeFeedback =(RelativeLayout) findViewById(R.id.relative_feedback);
+        RelativeLayout Relativetrending =(RelativeLayout) findViewById(R.id.relative_trend);
+
 
         RelativeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +126,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         RelativeMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+            }
+        });
+        RelativeFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+                Intent intent = new Intent(MainActivity.this,FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
+        Relativetrending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
