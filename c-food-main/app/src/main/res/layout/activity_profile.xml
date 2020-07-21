@@ -32,29 +32,14 @@
             </TextView>
 
             <TextView
-                android:id="@+id/full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-
-                android:fontFamily="@font/bungee"
-                android:includeFontPadding="false"
-                android:text="Nguyễn Khắc Hoài Thương"
-                android:textAlignment="center"
-                android:textSize="20sp">
-
-            </TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/full_name"
+                android:layout_below="@id/logo_text"
                 android:fontFamily="@font/croissant_one"
                 android:includeFontPadding="false"
-                android:text="HoangThuong_cmg"
+                android:text="Take care of your body. It's the only place you have to live"
                 android:textAlignment="center"
                 android:textSize="16sp">
-
             </TextView>
 
         </RelativeLayout>
@@ -70,14 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Full Name">
+                android:hint="Username">
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_profilename"
                     android:drawablePadding="10dp"
+                    android:enabled="false"
                     android:text="Nguyễn Khắc Hoài Thương" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,6 +77,8 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:enabled="false"
+                    android:id="@+id/email_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_gmail"
@@ -106,36 +95,22 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneNumber_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_phone_number"
                     android:drawablePadding="10dp"
-                    android:text="0123456781" />
+                    android:enabled="false"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:hint="Address">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_map"
-                    android:drawablePadding="10dp"
-                    android:text="Số 1 Võ Văn Ngân, Thủ Dức" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <Button
+                android:id="@+id/changePass_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#d4f3ef"
                 android:fontFamily="@font/bungee"
-                android:text="Update" />
+                android:text="Change password" />
         </LinearLayout>
 
     </LinearLayout>
