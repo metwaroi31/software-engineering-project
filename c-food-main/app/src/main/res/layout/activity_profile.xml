@@ -13,150 +13,36 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="200dp"
             android:background="#b7efcd"
             android:padding="20dp">
 
 
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_profilemb" />
-
             <TextView
-                android:id="@+id/full_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/logo_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/profile_image"
-                android:fontFamily="@font/bungee"
-                android:includeFontPadding="false"
-                android:text="Nguyễn Khắc Hoài Thương"
-                android:textSize="16sp">
+                android:fontFamily="@font/cherry_swash_bold"
+
+                android:text="C-Food"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="36sp">
 
             </TextView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/full_name"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/profile_image"
+                android:layout_below="@id/logo_text"
                 android:fontFamily="@font/croissant_one"
                 android:includeFontPadding="false"
-                android:text="HoangThuong_cmg"
-                android:textSize="14sp">
-
+                android:text="Take care of your body. It's the only place you have to live"
+                android:textAlignment="center"
+                android:textSize="16sp">
             </TextView>
 
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-100dp"
-            android:padding="20dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#a8df65"
-                app:cardElevation="10dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/icon_sex" />
-
-
-                    <TextView
-                        android:id="@+id/profile-sex-label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/bungee"
-                        android:includeFontPadding="false"
-                        android:text="Male"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/profile-sex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:fontFamily="@font/cherry_swash_bold"
-                        android:includeFontPadding="false"
-                        android:paddingTop="80dp"
-                        android:text="Sex"
-                        android:textSize="14sp">
-
-                    </TextView>
-
-
-                </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#a8df65"
-                app:cardElevation="10dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp">
-
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/icon_company" />
-
-                    <TextView
-                        android:id="@+id/profile-company-label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/bungee"
-                        android:includeFontPadding="false"
-                        android:text="SPKT"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/profile-company"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:fontFamily="@font/cherry_swash_bold"
-                        android:includeFontPadding="false"
-                        android:paddingTop="80dp"
-                        android:text="Company"
-                        android:textSize="14sp">
-
-                    </TextView>
-                </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,14 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Full Name">
+                android:hint="Username">
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_profilename"
                     android:drawablePadding="10dp"
+                    android:enabled="false"
                     android:text="Nguyễn Khắc Hoài Thương" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,6 +77,8 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:enabled="false"
+                    android:id="@+id/email_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_gmail"
@@ -205,36 +95,22 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneNumber_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_phone_number"
                     android:drawablePadding="10dp"
-                    android:text="0123456781" />
+                    android:enabled="false"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:hint="Address">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_map"
-                    android:drawablePadding="10dp"
-                    android:text="Số 1 Võ Văn Ngân, Thủ Dức" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <Button
+                android:id="@+id/changePass_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#d4f3ef"
                 android:fontFamily="@font/bungee"
-                android:text="Update" />
+                android:text="Change password" />
         </LinearLayout>
 
     </LinearLayout>
