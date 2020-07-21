@@ -12,9 +12,11 @@
         android:layout_height="wrap_content"
         app:menu="@menu/search_bar"
         app:title="Find your food"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewFoodList"
             android:layout_width="match_parent"
