@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class FoodDetailActivity extends AppCompatActivity {
+    private AWSAppSyncClient mAWSAppSyncClient;
     CollapsingToolbarLayout collapsingToolbarLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +22,11 @@ public class FoodDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout = findViewById(R.id.collapsingToolBar1);
         collapsingToolbarLayout.setTitle(foodName + foodID);
     }
+    private void initDatabase () {
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
 
+    }
 }
