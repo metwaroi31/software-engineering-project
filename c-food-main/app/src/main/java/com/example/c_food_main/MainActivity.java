@@ -21,8 +21,11 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.amazonaws.amplify.generated.graphql.CreateFoodMutation;
+import com.amazonaws.amplify.generated.graphql.CreateIngredientsFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateIngredientsMutation;
+import com.amazonaws.amplify.generated.graphql.CreateMacronutrientsFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateMacronutrientsMutation;
+import com.amazonaws.amplify.generated.graphql.CreateVitaminsFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateVitaminsMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
@@ -50,9 +53,12 @@ import com.example.c_food_main.model.User;
 import javax.annotation.Nonnull;
 
 import type.CreateFoodInput;
+import type.CreateIngredientsFoodInput;
 import type.CreateIngredientsInput;
+import type.CreateMacronutrientsFoodInput;
 import type.CreateMacronutrientsInput;
 import type.CreateUserInput;
+import type.CreateVitaminsFoodInput;
 import type.CreateVitaminsInput;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -102,6 +108,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.e("Error", e.toString());
         }
     };
+    private GraphQLCall.Callback<CreateMacronutrientsFoodMutation.Data> mutationMacronutrientsFoodCallback = new GraphQLCall.Callback<CreateMacronutrientsFoodMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateMacronutrientsFoodMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<CreateVitaminsFoodMutation.Data> mutationVitaminsFoodCallback = new GraphQLCall.Callback<CreateVitaminsFoodMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateVitaminsFoodMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
+    private GraphQLCall.Callback<CreateIngredientsFoodMutation.Data> mutationIngredientsFoodCallback = new GraphQLCall.Callback<CreateIngredientsFoodMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateIngredientsFoodMutation.Data> response) {
+            Log.i("Results", "Added Todo");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -135,7 +174,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         final Animation animTranslate = AnimationUtils.loadAnimation(this,R.anim.anim_translate);
-        addSamplingData();
         RelativeLayout RelativeSearch =(RelativeLayout) findViewById(R.id.relative_search);
         RelativeLayout RelativeLikemeal =(RelativeLayout) findViewById(R.id.relative_likemeal);
         RelativeLayout RelativeMeal =(RelativeLayout) findViewById(R.id.relative_meal);
@@ -167,8 +205,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 view.startAnimation(animTranslate);
             }
         });
-
-
+        addManyToManyData();
     }
 
 
@@ -235,42 +272,128 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return true;
     }
+    private void addManyToManyData (){
+        CreateIngredientsFoodInput createIngredientsFoodInput = CreateIngredientsFoodInput.builder()
+                                                                    .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+                                                                    .ingredientID("251562eb-a5e3-4730-975b-1ed55489e898")
+                                                                    .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsFoodMutation.builder().input(createIngredientsFoodInput).build())
+                .enqueue(mutationIngredientsFoodCallback);
+        CreateIngredientsFoodInput createIngredientsFoodInput2 = CreateIngredientsFoodInput.builder()
+                .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+                .ingredientID("251562eb-a5e3-4730-975b-1ed55489e898")
+                .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsFoodMutation.builder().input(createIngredientsFoodInput2).build())
+                .enqueue(mutationIngredientsFoodCallback);
+        CreateIngredientsFoodInput createIngredientsFoodInput3 = CreateIngredientsFoodInput.builder()
+                .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+                .ingredientID("251562eb-a5e3-4730-975b-1ed55489e898")
+                .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsFoodMutation.builder().input(createIngredientsFoodInput3).build())
+                .enqueue(mutationIngredientsFoodCallback);
+        CreateIngredientsFoodInput createIngredientsFoodInput4 = CreateIngredientsFoodInput.builder()
+                .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+                .ingredientID("251562eb-a5e3-4730-975b-1ed55489e898")
+                .build();
+        mAWSAppSyncClient.mutate(CreateIngredientsFoodMutation.builder().input(createIngredientsFoodInput4).build())
+                .enqueue(mutationIngredientsFoodCallback);
+//        CreateVitaminsFoodInput createVitaminsFoodInput = CreateVitaminsFoodInput.builder()
+//                                                                    .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+//                                                                    .vitaminID("2c330c25-82b1-4c74-a530-e5764755ce59")
+//                                                                    .build();
+//
+//        mAWSAppSyncClient.mutate(CreateVitaminsFoodMutation.builder().input(createVitaminsFoodInput).build())
+//                .enqueue(mutationVitaminsFoodCallback);
+//
+//        CreateVitaminsFoodInput createVitaminsFoodInput2 = CreateVitaminsFoodInput.builder()
+//                .foodID("f3b063e9-1511-4a21-9081-ffc9c1f8abbf")
+//                .vitaminID("f3b063e9-1511-4a21-9081-ffc9c1f8abbf")
+//                .build();
+//
+//        mAWSAppSyncClient.mutate(CreateVitaminsFoodMutation.builder().input(createVitaminsFoodInput).build())
+//                .enqueue(mutationVitaminsFoodCallback);
+//
+//        CreateVitaminsFoodInput createVitaminsFoodInput3 = CreateVitaminsFoodInput.builder()
+//                .foodID("f3b063e9-1511-4a21-9081-ffc9c1f8abbf")
+//                .vitaminID("f3b063e9-1511-4a21-9081-ffc9c1f8abbf")
+//                .build();
+//
+//        mAWSAppSyncClient.mutate(CreateVitaminsFoodMutation.builder().input(createVitaminsFoodInput).build())
+//                .enqueue(mutationVitaminsFoodCallback);
+//
+//        CreateVitaminsFoodInput createVitaminsFoodInput4 = CreateVitaminsFoodInput.builder()
+//                .foodID("d9301ff8-5604-4ee7-8b91-9ef77b86b931")
+//                .vitaminID("2c330c25-82b1-4c74-a530-e5764755ce59")
+//                .build();
+//
+//        mAWSAppSyncClient.mutate(CreateVitaminsFoodMutation.builder().input(createVitaminsFoodInput).build())
+//                .enqueue(mutationVitaminsFoodCallback);
+//        CreateMacronutrientsFoodInput createMacronutrientsFoodInput = CreateMacronutrientsFoodInput.builder()
+//                                                                            .foodID("00ea0185-9ec6-438d-ac4b-3c2396e2d9db")
+//                                                                            .macronutrientID("ac8eef18-8bff-4587-a281-eed3e1c0351f")
+//                                                                            .build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsFoodMutation.builder().input(createMacronutrientsFoodInput).build())
+//                .enqueue(mutationMacronutrientsFoodCallback);
+//
+//        CreateMacronutrientsFoodInput createMacronutrientsFoodInput2 = CreateMacronutrientsFoodInput.builder()
+//                .foodID("d15fd701-673a-49fb-92fd-2af0c66f9fd7")
+//                .macronutrientID("13898c67-ce4f-4a1c-9357-3f4f72f38eeb")
+//                .build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsFoodMutation.builder().input(createMacronutrientsFoodInput2).build())
+//                .enqueue(mutationMacronutrientsFoodCallback);
+//
+//        CreateMacronutrientsFoodInput createMacronutrientsFoodInput3 = CreateMacronutrientsFoodInput.builder()
+//                .foodID("d9301ff8-5604-4ee7-8b91-9ef77b86b931")
+//                .macronutrientID("ac8eef18-8bff-4587-a281-eed3e1c0351f")
+//                .build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsFoodMutation.builder().input(createMacronutrientsFoodInput2).build())
+//                .enqueue(mutationMacronutrientsFoodCallback);
+//
+//        CreateMacronutrientsFoodInput createMacronutrientsFoodInput4 = CreateMacronutrientsFoodInput.builder()
+//                .foodID("d9301ff8-5604-4ee7-8b91-9ef77b86b931")
+//                .macronutrientID("13898c67-ce4f-4a1c-9357-3f4f72f38eeb")
+//                .build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsFoodMutation.builder().input(createMacronutrientsFoodInput2).build())
+//                .enqueue(mutationMacronutrientsFoodCallback);
+    }
+
     private void addSamplingData() {
-        CreateMacronutrientsInput createMacronutrientsInput = CreateMacronutrientsInput.builder()
-                                                                .name("macro")
-                                                                .value("12")
-                                                                .unit("unit").build();
-        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput).build())
-                .enqueue(mutationMacronutrientsCallback);
-        CreateMacronutrientsInput createMacronutrientsInput2 = CreateMacronutrientsInput.builder()
-                .name("macro2")
-                .value("123")
-                .unit("unit2").build();
-        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput2).build())
-                .enqueue(mutationMacronutrientsCallback);
-        CreateIngredientsInput createIngredientsInput = CreateIngredientsInput.builder()
-                .name("ingredients")
-                .isvegeterian(false)
-                .build();
-        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput).build())
-                .enqueue(mutationIngredientsCallback);
-        CreateIngredientsInput createIngredientsInput2 = CreateIngredientsInput.builder()
-                .name("ingredients2")
-                .isvegeterian(true)
-                .build();
-        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput2).build())
-                .enqueue(mutationIngredientsCallback);
-        CreateVitaminsInput createVitaminsInput = CreateVitaminsInput.builder()
-                                                    .name("A")
-                                                    .unit("unit")
-                                                    .value(12).build();
-        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput).build())
-                .enqueue(mutationVitaminsCallback);
-        CreateVitaminsInput createVitaminsInput2 = CreateVitaminsInput.builder()
-                .name("A")
-                .unit("unit")
-                .value(12).build();
-        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput2).build())
-                .enqueue(mutationVitaminsCallback);
+//        CreateMacronutrientsInput createMacronutrientsInput = CreateMacronutrientsInput.builder()
+//                                                                .name("macro")
+//                                                                .value("12")
+//                                                                .unit("unit").build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput).build())
+//                .enqueue(mutationMacronutrientsCallback);
+//        CreateMacronutrientsInput createMacronutrientsInput2 = CreateMacronutrientsInput.builder()
+//                .name("macro2")
+//                .value("123")
+//                .unit("unit2").build();
+//        mAWSAppSyncClient.mutate(CreateMacronutrientsMutation.builder().input(createMacronutrientsInput2).build())
+//                .enqueue(mutationMacronutrientsCallback);
+//        CreateIngredientsInput createIngredientsInput = CreateIngredientsInput.builder()
+//                .name("ingredients")
+//                .isvegeterian(false)
+//                .build();
+//        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput).build())
+//                .enqueue(mutationIngredientsCallback);
+//        CreateIngredientsInput createIngredientsInput2 = CreateIngredientsInput.builder()
+//                .name("ingredients2")
+//                .isvegeterian(true)
+//                .build();
+//        mAWSAppSyncClient.mutate(CreateIngredientsMutation.builder().input(createIngredientsInput2).build())
+//                .enqueue(mutationIngredientsCallback);
+//        CreateVitaminsInput createVitaminsInput = CreateVitaminsInput.builder()
+//                                                    .name("B")
+//                                                    .unit("unit")
+//                                                    .value(12).build();
+//        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput).build())
+//                .enqueue(mutationVitaminsCallback);
+//        CreateVitaminsInput createVitaminsInput2 = CreateVitaminsInput.builder()
+//                .name("A")
+//                .unit("unit")
+//                .value(12).build();
+//        mAWSAppSyncClient.mutate(CreateVitaminsMutation.builder().input(createVitaminsInput2).build())
+//                .enqueue(mutationVitaminsCallback);
+
     }
 }
