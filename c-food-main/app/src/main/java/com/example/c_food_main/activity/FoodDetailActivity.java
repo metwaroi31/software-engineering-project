@@ -1,10 +1,11 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.c_food_main.R;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class FoodDetailActivity extends AppCompatActivity {

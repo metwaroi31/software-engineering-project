@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.amplifyframework.core.Amplify;
+import com.example.c_food_main.R;
 import com.example.c_food_main.model.User;
 
 public class ConfirmCodeActivity extends AppCompatActivity {
