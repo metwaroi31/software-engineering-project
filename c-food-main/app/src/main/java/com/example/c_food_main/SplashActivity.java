@@ -75,6 +75,7 @@ public class SplashActivity extends AppCompatActivity {
     private void goToMainActivity() {
 
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         runOnUiThread(new Runnable() {
             @Override
@@ -82,7 +83,6 @@ public class SplashActivity extends AppCompatActivity {
                 Toasty.success(getApplicationContext(), "Welcome, " + Amplify.Auth.getCurrentUser().getUsername() + " !", Toast.LENGTH_SHORT, true).show();
             }
         });
-
     }
 
     private void goToLoginActivity() {
