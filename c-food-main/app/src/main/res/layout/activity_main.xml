@@ -237,7 +237,7 @@
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/icon_category" />
+                            app:srcCompat="@drawable/icon_fast_food" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
