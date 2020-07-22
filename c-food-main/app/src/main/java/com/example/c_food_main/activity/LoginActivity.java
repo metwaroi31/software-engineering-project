@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
+import com.example.c_food_main.R;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import es.dmoral.toasty.Toasty;
 

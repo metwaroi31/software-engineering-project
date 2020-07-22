@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -10,44 +10,25 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.amazonaws.amplify.generated.graphql.CreateFoodMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
-import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
 import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
-import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
-import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.example.c_food_main.R;
 import com.google.android.material.navigation.NavigationView;
 import com.apollographql.apollo.GraphQLCall;
 
-import com.amazonaws.amplify.generated.graphql.CreateFavoriteFoodMutation;
-import com.amazonaws.amplify.generated.graphql.CreateUserMutation;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
-import com.amplifyframework.auth.AuthUserAttributeKey;
-import com.amplifyframework.auth.options.AuthSignUpOptions;
-import com.amplifyframework.core.Amplify;
-import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.example.c_food_main.model.User;
-
-import javax.annotation.Nonnull;
-
-import type.CreateFoodInput;
-import type.CreateUserInput;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -117,12 +98,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
+
             }
         });
         RelativeCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
+                Intent intent = new Intent(MainActivity.this,CategoriesActivity.class);
+                startActivity(intent);
             }
         });
         RelativeMeal.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void goToLoginActivity(){
         Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
     private void initDatabase () {

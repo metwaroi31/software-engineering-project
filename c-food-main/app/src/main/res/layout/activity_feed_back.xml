@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#f7f7ee"
     android:padding="10dp"
-    tools:context=".FeedbackActivity">
+    tools:context=".activity.FeedbackActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

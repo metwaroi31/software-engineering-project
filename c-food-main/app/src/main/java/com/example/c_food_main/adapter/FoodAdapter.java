@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.apollographql.apollo.api.Response;
+import com.example.c_food_main.activity.FoodDetailActivity;
+import com.example.c_food_main.R;
 
 
 import es.dmoral.toasty.Toasty;
@@ -25,7 +27,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private Context mContext;
     private Response<ListFoodsQuery.Data> foodList;
     int currentPosition;
-    FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
+    public FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
         this.mContext = context;
         this.foodList = list;
 
@@ -87,7 +89,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     Log.i("ViewHolderPosition", Integer.toString(currentPosition));
                     String foodName = foodList.data().listFoods().items().get(currentPosition).name();
                     String foodId = foodList.data().listFoods().items().get(currentPosition).id();
-                    Intent intent = new Intent(v.getContext(),FoodDetailActivity.class);
+                    Intent intent = new Intent(v.getContext(), FoodDetailActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("Food_Name", foodName);
                     intent.putExtra("Food_id",foodId);

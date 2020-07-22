@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.amplifyframework.core.Amplify;
+import com.example.c_food_main.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ProfileActivity extends AppCompatActivity {

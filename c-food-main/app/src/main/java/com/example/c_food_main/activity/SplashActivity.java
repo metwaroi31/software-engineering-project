@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
+import com.example.c_food_main.R;
 
 import es.dmoral.toasty.Toasty;
 

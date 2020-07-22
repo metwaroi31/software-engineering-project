@@ -1,4 +1,4 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
-import com.amazonaws.amplify.generated.graphql.CreateFavoriteFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateUserMutation;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
@@ -20,6 +18,7 @@ import com.amplifyframework.core.Amplify;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.example.c_food_main.R;
 import com.example.c_food_main.model.User;
 import com.google.android.material.textfield.TextInputEditText;
 

@@ -1,18 +1,14 @@
-package com.example.c_food_main;
+package com.example.c_food_main.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Application;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.LinearLayout;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.mobile.config.AWSConfiguration;
@@ -21,6 +17,8 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.example.c_food_main.R;
+import com.example.c_food_main.adapter.FoodAdapter;
 import com.example.c_food_main.model.FoodModel;
 
 import java.util.ArrayList;
