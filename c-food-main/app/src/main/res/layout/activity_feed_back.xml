@@ -4,42 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    android:background="#f7f7ee"
+    android:padding="10dp"
+    tools:context=".FeedbackActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:text="FeedBack"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#000"
+            android:textSize="40sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#b7efcd"
-            android:padding="20dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="50dp">
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/icon_feedback" />
 
             <TextView
-                android:id="@+id/logo_text"
+                android:id="@+id/logotext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/cherry_swash_bold"
-
-                android:text="C-Food"
-                android:textAlignment="center"
+                android:padding="5dp"
+                android:text="Any feedback from you will help the system grow better."
                 android:textColor="#000"
-                android:textSize="36sp">
+                android:textSize="18sp">
 
-            </TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/logo_text"
-                android:fontFamily="@font/croissant_one"
-                android:includeFontPadding="false"
-                android:text="Take care of your body. It's the only place you have to live"
-                android:textAlignment="center"
-                android:textSize="16sp">
             </TextView>
 
         </RelativeLayout>
@@ -77,28 +83,27 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:enabled="false"
                     android:id="@+id/email_userfeedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icon_gmail"
                     android:drawablePadding="10dp"
+                    android:enabled="false"
                     android:text="Thuongdeptrai@gmail.com" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Phone Number">
+                android:hint="FeedBack">
 
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/contentfeedback"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_phone_number"
+                    android:layout_height="150dp"
                     android:drawablePadding="10dp"
                     android:enabled="false"
                     android:text="" />
@@ -110,8 +115,7 @@
                 android:layout_height="wrap_content"
                 android:background="#d4f3ef"
                 android:fontFamily="@font/bungee"
-                android:text="Change password" />
+                android:text="Send FeedBack" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

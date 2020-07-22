@@ -21,6 +21,7 @@
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".FeedbackActivity"></activity>
         <activity android:name=".FoodDetailActivity" />
         <activity android:name=".SearchFoodActivity" />
         <activity android:name=".ConfirmCodeActivity" />

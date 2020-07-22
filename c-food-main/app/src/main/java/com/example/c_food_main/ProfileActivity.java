@@ -17,9 +17,9 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        usernameTextEdit = findViewById(R.id.username_profile);
-        emailTextEdit = findViewById(R.id.email_profile);
-        phoneNumberTextEdit = findViewById(R.id.phoneNumber_profile);
+        usernameTextEdit = findViewById(R.id.username_feedback);
+        emailTextEdit = findViewById(R.id.email_userfeedback);
+        phoneNumberTextEdit = findViewById(R.id.contentfeedback);
         changePassButton = findViewById(R.id.changePass_btn);
         changePassButton.setOnClickListener(new View.OnClickListener() {
             @Override
