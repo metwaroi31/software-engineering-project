@@ -27,11 +27,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="30dp">
+            android:paddingBottom="50dp">
 
             <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/icon_feedback" />
 
             <TextView
@@ -53,96 +53,69 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <ImageView
-                android:id="@+id/Displayimage_view"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-
-                app:srcCompat="@drawable/icon_photo" />
-
-            <RelativeLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="30dp">
+                android:layout_marginBottom="10dp"
+                android:hint="Username">
 
-                <Button
-                    android:id="@+id/camera_Btn"
-                    android:layout_width="180dp"
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username_feedback"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#d4f3ef"
-                    android:fontFamily="@font/baloo"
-                    android:text="Camera" />
+                    android:drawableLeft="@drawable/icon_profilename"
+                    android:drawablePadding="10dp"
+                    android:enabled="false"
+                    android:text="Nguyễn Khắc Hoài Thương" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/gallery_Btn"
-                    android:layout_width="180dp"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="E-Mail">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_userfeedback"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/camera_Btn"
-                    android:background="#d4f3ef"
-                    android:fontFamily="@font/baloo"
-                    android:text="Gallery" />
-            </RelativeLayout>
+                    android:drawableLeft="@drawable/icon_gmail"
+                    android:drawablePadding="10dp"
+                    android:enabled="false"
+                    android:text="Thuongdeptrai@gmail.com" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:hint="FeedBack">
 
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contentfeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:drawablePadding="10dp"
+                    android:enabled="false"
+                    android:text="" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/changePass_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#d4f3ef"
+                android:fontFamily="@font/bungee"
+                android:text="Send FeedBack" />
         </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Title"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Content"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:id="@+id/changePass_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#d4f3ef"
-            android:fontFamily="@font/bungee"
-            android:text="Send FeedBack" />
-    </LinearLayout>
-
-
-
-
-
     </LinearLayout>
 </ScrollView>
