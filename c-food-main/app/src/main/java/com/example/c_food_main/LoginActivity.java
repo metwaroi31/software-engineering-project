@@ -22,7 +22,7 @@ import es.dmoral.toasty.Toasty;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button loginBtn;
+    Button loginBtn, forgotButton;
     Button callSignUp;
     ImageView image;
     TextView logoText;
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //hooks
-
+        forgotButton  = findViewById(R.id.forgot_password_button);
         image=findViewById(R.id.logo_image);
         logoText=findViewById(R.id.logo_name);
 //        image=findViewById(R.id.logo_name);
@@ -48,6 +48,13 @@ public class LoginActivity extends AppCompatActivity {
 // Thụy xem lại chỗ này dùm tui nha sao gọi ra để dưới chạy animation ko đc chạy app nó ko lên
         callSignUp = findViewById(R.id.signup_btn);
 
+        forgotButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,ForgetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +158,8 @@ public class LoginActivity extends AppCompatActivity {
     }
         private  void gotoMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
     }
 }
 
