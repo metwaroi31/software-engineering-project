@@ -12,6 +12,17 @@
         android:layout_height="wrap_content"
         app:menu="@menu/search_bar"
         app:title="Find your food"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minHeight="80dp"
+        android:minWidth="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,8 +34,9 @@
             android:layout_height="match_parent">
 
         </androidx.recyclerview.widget.RecyclerView>
-
     </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
 
 
 </LinearLayout>

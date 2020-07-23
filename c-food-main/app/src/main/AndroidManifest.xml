@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MealActivity"></activity>
+        <activity android:name=".activity.SearchFoodBasedCategories"></activity>
+        <activity android:name=".activity.MealActivity" />
         <activity android:name=".activity.FavoriteFoodActivity" />
         <activity android:name=".activity.TrendingActivity" />
         <activity android:name=".activity.FindPasswordActivity" />

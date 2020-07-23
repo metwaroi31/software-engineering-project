@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.c_food_main.R;
-import com.example.c_food_main.adapter.CategoriesAdapter;
 import com.example.c_food_main.adapter.TrendingFoodAdapter;
 import com.example.c_food_main.model.FoodModel;
 
@@ -31,8 +30,8 @@ public class TrendingActivity extends AppCompatActivity {
     }
 
     private void createList() {
-        list.add(new FoodModel(R.drawable.turkey_bacon,"Turkey Bacon Sandwich",230));
-        list.add(new FoodModel(R.drawable.spinach,"Spinach, Feta & Cage-Free Egg White Wrap",290));
+        list.add(new FoodModel(R.drawable.turkey_bacon,"Turkey Bacon Sandwich",230,"fast food"));
+        list.add(new FoodModel(R.drawable.spinach,"Spinach, Feta & Cage-Free Egg White Wrap",290,"meat"));
 
     }
 
