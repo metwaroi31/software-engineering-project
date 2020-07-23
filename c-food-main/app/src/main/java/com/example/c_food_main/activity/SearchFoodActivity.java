@@ -58,6 +58,7 @@ public class SearchFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_food);
         progressBar = findViewById(R.id.progress_bar);
         initDatabase();
+
         query();
 //        recyclerView = findViewById(R.id.recyclerViewFoodList);
 //        foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));

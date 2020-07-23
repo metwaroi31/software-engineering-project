@@ -15,21 +15,42 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
+import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amplifyframework.core.Amplify;
 import com.apollographql.apollo.api.Response;
 import com.example.c_food_main.activity.FoodDetailActivity;
 import com.example.c_food_main.R;
 
 
+import java.util.UUID;
+
 import es.dmoral.toasty.Toasty;
+import type.ModelStringInput;
+import type.ModelUserFilterInput;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
-
+    private AppSync
     private Context mContext;
     private Response<ListFoodsQuery.Data> foodList;
     int currentPosition;
+    private String COGNITO_POOL_ID = "ap-southeast-1:60ab7509-7a59-415e-9169-34911ac99c65";
+    private Regions COGNITO_REGION = Regions.AP_SOUTHEAST_1;
+    private AmazonDynamoDBClient dbClient;
+    private Table dbTable;
+    private String TABLE_NAME = "FavoriteFood-cxpgpugphfgqfhvznc67xk5wye-dev";
+
     public FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
         this.mContext = context;
         this.foodList = list;
+        initDatabase();
+        connectDB connect = new connectDB();
+        connect.execute();
+        queryUser();
+
     }
     @NonNull
     @Override
@@ -105,4 +126,33 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             });
         }
     }
+    private void addFavFood (String foodID, String userID) {
+        try {
+            Document newMemo = new Document();
+            newMemo.put("id", UUID.randomUUID().toString());
+            newMemo.put("createdAt", "2020-07-21T07:48:37.265Z");
+            newMemo.put("foodID", foodID);
+            newMemo.put("userID", userID);
+            newMemo.put("updatedAt", "2020-07-14T17:50:49.304Z");
+
+            CreateItemAsyncTask task = new CreateItemAsyncTask();
+            task.execute(newMemo);
+        } catch (Exception e) {
+            Log.i("error add Fav", e.toString());
+        }
+//        CreateFavoriteFoodInput createFavoriteFoodInput = CreateFavoriteFoodInput.builder()
+//                                                            .foodID(foodID)
+//                                                            .userID(userID)
+//                                                            .build();
+//        mAWSAppSyncClient.mutate(CreateFavoriteFoodMutation.builder().input(createFavoriteFoodInput).build())
+//                .enqueue(favFoodCallback);
+    }
+    private void queryUser () {
+        Log.i("user", Amplify.Auth.getCurrentUser().getUsername());
+        String username = Amplify.Auth.getCurrentUser().getUsername();
+        ModelStringInput modelStringInput = ModelStringInput.builder().eq(username).build();
+        ModelUserFilterInput modelFoodFilterInput = ModelUserFilterInput.builder().username(modelStringInput).build();
+        mAWSAppSyncClient.query(ListUsersQuery.builder().filter(modelFoodFilterInput ).build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(userCallback);
 }
