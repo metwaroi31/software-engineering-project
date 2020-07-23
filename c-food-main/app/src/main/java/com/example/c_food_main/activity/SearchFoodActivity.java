@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.mobile.config.AWSConfiguration;
@@ -27,7 +29,7 @@ public class SearchFoodActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private AWSAppSyncClient mAWSAppSyncClient;
     ArrayList<FoodModel> foodList = new ArrayList<FoodModel>();
-
+    ProgressBar progressBar;
     private Response<ListFoodsQuery.Data> returnedData;
     private GraphQLCall.Callback<ListFoodsQuery.Data> todosCallback = new GraphQLCall.Callback<ListFoodsQuery.Data>() {
         @Override
@@ -39,7 +41,9 @@ public class SearchFoodActivity extends AppCompatActivity {
             SearchFoodActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    progressBar.setVisibility(View.GONE);
                     displayData();
+
                 }
             });
         }
@@ -52,7 +56,7 @@ public class SearchFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_food);
-
+        progressBar = findViewById(R.id.progress_bar);
         initDatabase();
         query();
 //        recyclerView = findViewById(R.id.recyclerViewFoodList);

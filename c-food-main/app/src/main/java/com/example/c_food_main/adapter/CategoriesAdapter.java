@@ -1,6 +1,7 @@
 package com.example.c_food_main.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c_food_main.R;
+import com.example.c_food_main.activity.FoodDetailActivity;
+import com.example.c_food_main.activity.SearchFoodBasedCategories;
 import com.example.c_food_main.model.CategoriesModel;
 
 import java.util.ArrayList;
@@ -59,7 +62,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    int currentPo = getAdapterPosition();
+                    String category = categoriesList.get(currentPo).getName();
+                    Intent intent = new Intent(v.getContext(), SearchFoodBasedCategories.class);
+                    intent.putExtra("Category",category);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    v.getContext().startActivity(intent);
                 }
             });
 

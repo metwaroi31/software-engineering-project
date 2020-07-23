@@ -3,12 +3,21 @@ package com.example.c_food_main.model;
 public class FoodModel {
 
     private int image,calories;
-    private String name;
+    private String name, category;
 
-    public FoodModel(int image, String name, int calories) {
+    public FoodModel(int image, String name, int calories, String category) {
         this.image = image;
         this.name = name;
+        this.category = category;
         this.calories = calories;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getImage() {
