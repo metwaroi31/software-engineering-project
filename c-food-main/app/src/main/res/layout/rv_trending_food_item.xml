@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
+    android:background="#ff9595"
     app:cardCornerRadius="@dimen/browser_actions_context_menu_min_padding">
+
     <LinearLayout
-        android:padding="10dp"
-        android:weightSum="10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:background="#cfe5cf"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="10">
+
         <TextView
             android:id="@+id/rank_number_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="1"
-            android:textSize="30dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/baloo"
+            android:text="Top 1"
+            android:textColor="#f54291"
+            android:textSize="27dp" />
+
         <ImageView
             android:id="@+id/trending_food_image"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/com_tam"/>
+            android:src="@drawable/com_tam" />
 
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
             <TextView
@@ -37,12 +45,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cherry_swash_bold"
-                android:text="Trending Food name" />
+                android:text="Trending Food name"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/trending_food_calories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calories"/>
+                android:text="Calories"
+                android:textSize="16sp" />
 
 
         </LinearLayout>
