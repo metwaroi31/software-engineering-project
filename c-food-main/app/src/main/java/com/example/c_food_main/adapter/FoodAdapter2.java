@@ -48,7 +48,7 @@ public class FoodAdapter2 extends RecyclerView.Adapter<FoodAdapter2.ViewHolder> 
            calories = holder.item_calories;
            image.setImageResource(list.get(position).getImage());
            name.setText(list.get(position).getName());
-           calories.setText(Integer.toString(list.get(position).getCalories()));
+           calories.setText("Calories: "+Integer.toString(list.get(position).getCalories()));
 
     }
 

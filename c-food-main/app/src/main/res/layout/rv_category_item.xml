@@ -16,11 +16,11 @@
         <ImageView
             android:id="@+id/category_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/com_tam"
             android:textAlignment="center" />
-
-
+        
     </LinearLayout>
 
     <TextView

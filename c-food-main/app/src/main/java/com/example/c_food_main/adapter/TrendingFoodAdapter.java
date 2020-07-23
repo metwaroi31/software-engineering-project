@@ -1,6 +1,7 @@
 package com.example.c_food_main.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c_food_main.R;
+import com.example.c_food_main.activity.FoodDetailActivity;
 import com.example.c_food_main.model.FoodModel;
 
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public class TrendingFoodAdapter extends RecyclerView.Adapter<TrendingFoodAdapte
         TextView calories = holder.item_calories;
 
         image.setImageResource(foodList.get(position).getImage());
+
         name.setText(foodList.get(position).getName());
         calories.setText("Calories: "+Integer.toString(foodList.get(position).getCalories()));
         ranking.setText(Integer.toString(position+1));
@@ -66,7 +69,14 @@ public class TrendingFoodAdapter extends RecyclerView.Adapter<TrendingFoodAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    int currentPosition = getAdapterPosition();
+                    int image = foodList.get(currentPosition).getImage();
+                    String foodname = foodList.get(currentPosition).getName();
+                    Intent intent = new Intent(v.getContext(), FoodDetailActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("Food_Image",image);
+                    intent.putExtra("Food_Name",foodname);
+                    v.getContext().startActivity(intent);
                 }
             });
         }

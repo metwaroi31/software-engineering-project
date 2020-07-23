@@ -21,9 +21,10 @@
             app:title="Food name">
 
             <ImageView
+                android:id="@+id/food_cover_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@drawable/c_food"
+                android:src="@drawable/beans_nuts"
                 android:scaleType="centerCrop">
 
             </ImageView>
