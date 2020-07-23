@@ -56,7 +56,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         currentPosition = position;
 //      image.setImageResource(foodList.data().listFoods().items().get(position).getImage());
         name.setText(foodList.data().listFoods().items().get(position).name());
-        calories.setText(Double.toString((foodList.data().listFoods().items().get(position).weight())));
+        calories.setText("Calories: "+Double.toString((foodList.data().listFoods().items().get(position).weight())));
         Log.i("BindViewHolder",Integer.toString(currentPosition));
     }
 
