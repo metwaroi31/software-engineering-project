@@ -2,6 +2,7 @@ package com.example.c_food_main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,15 +19,23 @@ import com.amazonaws.amplify.generated.graphql.CreateFavoriteFoodMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
 import com.amazonaws.amplify.generated.graphql.ListVitaminssQuery;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.amazonaws.mobileconnectors.cognitoauth.Auth;
+import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
+import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Document;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amplifyframework.core.Amplify;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
+
+import java.util.UUID;
 
 import es.dmoral.toasty.Toasty;
 import type.CreateFavoriteFoodInput;
@@ -40,6 +49,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private String currentUser;
     private Context mContext;
     private Response<ListFoodsQuery.Data> foodList;
+    private String COGNITO_POOL_ID = "ap-southeast-1:60ab7509-7a59-415e-9169-34911ac99c65";
+    private Regions COGNITO_REGION = Regions.AP_SOUTHEAST_1;
+    private AmazonDynamoDBClient dbClient;
+    private Table dbTable;
+    private String TABLE_NAME = "FavoriteFood-cxpgpugphfgqfhvznc67xk5wye-dev";
     int currentPosition;
     private GraphQLCall.Callback<ListUsersQuery.Data> userCallback = new GraphQLCall.Callback<ListUsersQuery.Data>() {
         @Override
@@ -69,6 +83,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         this.mContext = context;
         this.foodList = list;
         initDatabase();
+        connectDB connect = new connectDB();
+        connect.execute();
         queryUser();
     }
     @NonNull
@@ -152,14 +168,33 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 .context(mContext)
                 .awsConfiguration(new AWSConfiguration(mContext))
                 .build();
+//        try {
+//        connectDB connect = new connectDB();
+//        connect.execute();
+//        } catch (Exception e) {
+//            Log.i("Error Init", e.toString());
+//        }
     }
     private void addFavFood (String foodID, String userID) {
-        CreateFavoriteFoodInput createFavoriteFoodInput = CreateFavoriteFoodInput.builder()
-                                                            .foodID(foodID)
-                                                            .userID(userID)
-                                                            .build();
-        mAWSAppSyncClient.mutate(CreateFavoriteFoodMutation.builder().input(createFavoriteFoodInput).build())
-                .enqueue(favFoodCallback);
+        try {
+            Document newMemo = new Document();
+            newMemo.put("id", UUID.randomUUID().toString());
+            newMemo.put("createdAt", "2020-07-21T07:48:37.265Z");
+            newMemo.put("foodID", foodID);
+            newMemo.put("userID", userID);
+            newMemo.put("updatedAt", "2020-07-14T17:50:49.304Z");
+
+            CreateItemAsyncTask task = new CreateItemAsyncTask();
+            task.execute(newMemo);
+        } catch (Exception e) {
+            Log.i("error add Fav", e.toString());
+        }
+//        CreateFavoriteFoodInput createFavoriteFoodInput = CreateFavoriteFoodInput.builder()
+//                                                            .foodID(foodID)
+//                                                            .userID(userID)
+//                                                            .build();
+//        mAWSAppSyncClient.mutate(CreateFavoriteFoodMutation.builder().input(createFavoriteFoodInput).build())
+//                .enqueue(favFoodCallback);
     }
     private void queryUser () {
         Log.i("user", Amplify.Auth.getCurrentUser().getUsername());
@@ -170,5 +205,27 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(userCallback);
 
+    }
+    private class connectDB extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                    mContext, COGNITO_POOL_ID, COGNITO_REGION);
+            dbClient = new AmazonDynamoDBClient(credentialsProvider);
+            dbClient.setRegion(Region.getRegion(Regions.AP_SOUTHEAST_1));
+
+            dbTable = Table.loadTable(dbClient, TABLE_NAME);
+
+            return null;
+        }
+    }
+    private class CreateItemAsyncTask extends AsyncTask<Document, Void, Void> {
+        @Override
+        protected Void doInBackground(Document... documents) {
+            dbTable.putItem(documents[0]);
+            return null;
+        }
     }
 }

@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -29,9 +30,14 @@ import com.amazonaws.amplify.generated.graphql.CreateVitaminsFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateVitaminsMutation;
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
 import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
@@ -63,6 +69,11 @@ import type.CreateVitaminsInput;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private AWSAppSyncClient mAWSAppSyncClient;
+    private String COGNITO_POOL_ID = "ap-southeast-1:60ab7509-7a59-415e-9169-34911ac99c65";
+    private Regions COGNITO_REGION = Regions.AP_SOUTHEAST_1;
+    private AmazonDynamoDBClient dbClient;
+    private Table dbTable;
+    private String TABLE_NAME = "FavoriteFood-cxpgpugphfgqfhvznc67xk5wye-dev";
     private GraphQLCall.Callback<ListFoodsQuery.Data> todosCallback = new GraphQLCall.Callback<ListFoodsQuery.Data>() {
         @Override
         public void onResponse(@NonNull Response<ListFoodsQuery.Data> response) {
@@ -82,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
      MenuItem itemlogout;
   //  Button logoutButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -207,4 +219,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return true;
     }
+
 }
