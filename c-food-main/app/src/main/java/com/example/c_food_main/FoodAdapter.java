@@ -1,4 +1,4 @@
-package com.example.c_food_main.adapter;
+package com.example.c_food_main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -32,12 +32,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amplifyframework.core.Amplify;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/adapter/FoodAdapter.java
-import com.example.c_food_main.activity.FoodDetailActivity;
-import com.example.c_food_main.R;
-=======
 import com.apollographql.apollo.exception.ApolloException;
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/FoodAdapter.java
 
 
 import java.util.UUID;
@@ -60,11 +55,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private Table dbTable;
     private String TABLE_NAME = "FavoriteFood-cxpgpugphfgqfhvznc67xk5wye-dev";
     int currentPosition;
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/adapter/FoodAdapter.java
-    public FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
-        this.mContext = context;
-        this.foodList = list;
-=======
     private GraphQLCall.Callback<ListUsersQuery.Data> userCallback = new GraphQLCall.Callback<ListUsersQuery.Data>() {
         @Override
         public void onResponse(@NonNull Response<ListUsersQuery.Data> response) {
@@ -96,7 +86,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         connectDB connect = new connectDB();
         connect.execute();
         queryUser();
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/FoodAdapter.java
     }
     @NonNull
     @Override
@@ -123,7 +112,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         currentPosition = position;
 //      image.setImageResource(foodList.data().listFoods().items().get(position).getImage());
         name.setText(foodList.data().listFoods().items().get(position).name());
-        calories.setText("Calories: "+Double.toString((foodList.data().listFoods().items().get(position).weight())));
+        calories.setText(Double.toString((foodList.data().listFoods().items().get(position).weight())));
         Log.i("BindViewHolder",Integer.toString(currentPosition));
     }
 
@@ -155,7 +144,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     Log.i("ViewHolderPosition", Integer.toString(currentPosition));
                     String foodName = foodList.data().listFoods().items().get(currentPosition).name();
                     String foodId = foodList.data().listFoods().items().get(currentPosition).id();
-                    Intent intent = new Intent(v.getContext(), FoodDetailActivity.class);
+                    Intent intent = new Intent(v.getContext(),FoodDetailActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("Food_Name", foodName);
                     intent.putExtra("Food_id",foodId);

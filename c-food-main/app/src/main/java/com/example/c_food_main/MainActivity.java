@@ -1,4 +1,4 @@
-package com.example.c_food_main.activity;
+package com.example.c_food_main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,18 +11,16 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/activity/MainActivity.java
-import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
-import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
-import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
-import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
-=======
 import com.amazonaws.amplify.generated.graphql.CreateFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateIngredientsFoodMutation;
 import com.amazonaws.amplify.generated.graphql.CreateIngredientsMutation;
@@ -42,18 +40,20 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/MainActivity.java
 import com.amplifyframework.core.Amplify;
-import com.example.c_food_main.R;
 import com.google.android.material.navigation.NavigationView;
 import com.apollographql.apollo.GraphQLCall;
 
+import com.amazonaws.amplify.generated.graphql.CreateFavoriteFoodMutation;
+import com.amazonaws.amplify.generated.graphql.CreateUserMutation;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.options.AuthSignUpOptions;
+import com.amplifyframework.core.Amplify;
+import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/activity/MainActivity.java
-=======
 import com.example.c_food_main.model.User;
 
 import javax.annotation.Nonnull;
@@ -66,7 +66,6 @@ import type.CreateMacronutrientsInput;
 import type.CreateUserInput;
 import type.CreateVitaminsFoodInput;
 import type.CreateVitaminsInput;
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/MainActivity.java
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+
         navigationView.getMenu().clear();
         navigationView.inflateMenu(R.menu.main_menu);
 
@@ -126,9 +125,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         RelativeLayout RelativeLikemeal =(RelativeLayout) findViewById(R.id.relative_likemeal);
         RelativeLayout RelativeMeal =(RelativeLayout) findViewById(R.id.relative_meal);
         RelativeLayout RelativeCategory =(RelativeLayout) findViewById(R.id.relative_category);
-        RelativeLayout RelativeFeedback =(RelativeLayout) findViewById(R.id.relative_feedback);
-        RelativeLayout Relativetrending =(RelativeLayout) findViewById(R.id.relative_trend);
-
 
         RelativeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,39 +138,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
-                Intent intent = new Intent(MainActivity.this,FavoriteFoodActivity.class);
-                startActivity(intent);
             }
         });
         RelativeCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
-                Intent intent = new Intent(MainActivity.this,CategoriesActivity.class);
-                startActivity(intent);
             }
         });
         RelativeMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
-
-            }
-        });
-        RelativeFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(animTranslate);
-                Intent intent = new Intent(MainActivity.this,FeedbackActivity.class);
-                startActivity(intent);
-            }
-        });
-        Relativetrending.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(animTranslate);
-                Intent intent = new Intent(MainActivity.this,TrendingActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -193,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void goToLoginActivity(){
         Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
     private void initDatabase () {

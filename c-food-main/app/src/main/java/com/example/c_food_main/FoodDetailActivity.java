@@ -1,15 +1,11 @@
-package com.example.c_food_main.activity;
+package com.example.c_food_main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
 
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/activity/FoodDetailActivity.java
-import com.example.c_food_main.R;
-=======
 import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListIngredientsFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListIngredientssQuery;
@@ -23,7 +19,6 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/FoodDetailActivity.java
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
@@ -42,9 +37,6 @@ import type.ModelVitaminsFoodFilterInput;
 public class FoodDetailActivity extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
     CollapsingToolbarLayout collapsingToolbarLayout;
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/activity/FoodDetailActivity.java
-    ImageView coverImage;
-=======
     private ArrayList<String> macronutrients = new ArrayList<String>();
     private ArrayList<String> vitamins = new ArrayList<String>();
     private ArrayList<String> ingredients = new ArrayList<String>();
@@ -130,22 +122,14 @@ public class FoodDetailActivity extends AppCompatActivity {
             Log.i("ERROR OF QUERY", e.toString());
         }
     };
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/FoodDetailActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_detail);
-        coverImage = findViewById(R.id.food_cover_image);
         String foodName = getIntent().getStringExtra("Food_Name");
-        int image = getIntent().getIntExtra("Food_Image",0);
         String foodID = getIntent().getStringExtra("Food_id");
         String position = getIntent().getStringExtra("Position");
         collapsingToolbarLayout = findViewById(R.id.collapsingToolBar1);
-<<<<<<< HEAD:c-food-main/app/src/main/java/com/example/c_food_main/activity/FoodDetailActivity.java
-        collapsingToolbarLayout.setTitle(foodName);
-
-        coverImage.setImageResource(image);
-=======
         collapsingToolbarLayout.setTitle(foodName + foodID);
         initVariables();
         initDatabase();
@@ -154,7 +138,6 @@ public class FoodDetailActivity extends AppCompatActivity {
     }
     private void initVariables() {
 
->>>>>>> displayFoodDetail:c-food-main/app/src/main/java/com/example/c_food_main/FoodDetailActivity.java
     }
     private void initDatabase () {
         mAWSAppSyncClient = AWSAppSyncClient.builder()
