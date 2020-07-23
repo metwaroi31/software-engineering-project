@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
-
+                Intent intent = new Intent(MainActivity.this,FavoriteFoodActivity.class);
+                startActivity(intent);
             }
         });
         RelativeCategory.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 view.startAnimation(animTranslate);
+
             }
         });
         RelativeFeedback.setOnClickListener(new View.OnClickListener() {
