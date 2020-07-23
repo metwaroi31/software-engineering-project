@@ -6,17 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".activity.CategoriesActivity"
     android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Trending"/>
+        android:background="#ebecf1"
+        app:title="Trending" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#f1c5c5">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_trending_food"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

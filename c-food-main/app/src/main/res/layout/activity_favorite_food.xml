@@ -8,17 +8,20 @@
     tools:context=".activity.SearchFoodActivity"
     android:orientation="vertical">
     android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Your favorite food"/>
+        android:background="#d4f3ef"
+        app:title="Your favorite food" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#f6def6">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_fav_food_list"
