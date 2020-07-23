@@ -1,6 +1,7 @@
 package com.example.c_food_main.activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,6 +39,7 @@ public class FeedbackActivity<context> extends AppCompatActivity {
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
     public static final int GALLERY_REQUEST_CODE = 105;
+
     ImageView selectedImage;
     Button cameraBtn, galleryBtn;
     String currentPhotoPath;
@@ -50,23 +52,22 @@ public class FeedbackActivity<context> extends AppCompatActivity {
         cameraBtn = findViewById(R.id.camera_Btn);
         galleryBtn = findViewById(R.id.gallery_Btn);
 
-        cameraBtn.setOnClickListener(new View.OnClickListener()
-        {
 
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-             askCameraPermissions();
-               // Toast.makeText(FeedbackActivity.this, "Camera Button is Clicked", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+             //   askCameraPermissions();
+                // Toast.makeText(FeedbackActivity.this, "Camera Button is Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
-        galleryBtn.setOnClickListener(new View.OnClickListener()
-        {
+        galleryBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
-              Intent gallery= new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-              startActivityForResult(gallery, GALLERY_REQUEST_CODE);
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, GALLERY_REQUEST_CODE);
                 //  Toast.makeText(FeedbackActivity.this, "Gallery Button is Clicked", Toast.LENGTH_SHORT).show();
             }
         });
@@ -74,9 +75,11 @@ public class FeedbackActivity<context> extends AppCompatActivity {
 
     private void askCameraPermissions() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA}, CAMERA_PERM_CODE);
-    }else{
-           openCamera() ;
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERM_CODE);
+        } else {
+            openCamera();
+//            dispatchTakePictureIntent();
+
         }
 
     }
@@ -85,6 +88,7 @@ public class FeedbackActivity<context> extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode==CAMERA_PERM_CODE){
             if(grantResults.length<0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
                dispatchTakePictureIntent();
             }else{
                 Toast.makeText(this, "Camera Permission is Repuired to Use camera",Toast.LENGTH_SHORT).show();
@@ -98,13 +102,13 @@ public class FeedbackActivity<context> extends AppCompatActivity {
         startActivityForResult(camera, CAMERA_REQUEST_CODE);
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @NonNull Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST_CODE) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 File f = new File(currentPhotoPath);
                 selectedImage.setImageURI(Uri.fromFile(f));
-                Log.d("tag", "ABsolute Url of Image is " + Uri.fromFile(f));
+                Log.d("tag", "Absolute Url of Image is " + Uri.fromFile(f));
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 Uri contentUri = Uri.fromFile(f);
@@ -115,11 +119,11 @@ public class FeedbackActivity<context> extends AppCompatActivity {
 
 
         if (requestCode == GALLERY_REQUEST_CODE) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 Uri contentUri = data.getData();
-                String timeStamp = new SimpleDateFormat("yyyy_HHmmss").format(new Date());
-                String imageFileName ="JPEG" + timeStamp +"."+getFileExt(contentUri);
-                Log.d("tag", "onActivityResult: Fallery Image Uri " + imageFileName);
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                String imageFileName = "JPEG" + timeStamp + "." + getFileExt(contentUri);
+                Log.d("tag", "onActivityResult: Gallery Image Uri " + imageFileName);
                 selectedImage.setImageURI(contentUri);
 
             }
@@ -133,8 +137,8 @@ public class FeedbackActivity<context> extends AppCompatActivity {
     }
 
     private File createImageFile () throws IOException{
-        String timeStamp = new SimpleDateFormat("yyyy_HHmmss").format(new Date());
-        String imageFileName ="JPEG" + timeStamp +"_";
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName ="JPEG_" + timeStamp +"_";
      //   File storageDir= getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
@@ -143,7 +147,7 @@ public class FeedbackActivity<context> extends AppCompatActivity {
         currentPhotoPath = image.getAbsolutePath();
         return image;
     }
-    static final int REQUEST_TAKE_PHOTO =1;
+
     private void dispatchTakePictureIntent(){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -156,10 +160,10 @@ public class FeedbackActivity<context> extends AppCompatActivity {
             {
 
             }
-            if(photoFile!=null){
-                Uri photoURI = FileProvider.getUriForFile(this,"com.example.android.fileprovider",photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
-                startActivityForResult(takePictureIntent,REQUEST_TAKE_PHOTO);
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
             }
         }
     }
