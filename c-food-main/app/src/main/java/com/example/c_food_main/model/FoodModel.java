@@ -2,10 +2,10 @@ package com.example.c_food_main.model;
 
 public class FoodModel {
 
-    private int image;
-    private String name, calories;
+    private int image,calories;
+    private String name;
 
-    public FoodModel(int image, String name, String calories) {
+    public FoodModel(int image, String name, int calories) {
         this.image = image;
         this.name = name;
         this.calories = calories;
@@ -27,11 +27,11 @@ public class FoodModel {
         this.name = name;
     }
 
-    public String getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    public void setCalories(String calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 }
