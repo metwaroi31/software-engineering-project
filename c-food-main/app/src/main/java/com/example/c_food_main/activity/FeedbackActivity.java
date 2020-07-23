@@ -24,11 +24,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-<<<<<<< fix/UIFeedBack:c-food-main/app/src/main/java/com/example/c_food_main/activity/FeedbackActivity.java
 import com.example.c_food_main.R;
-
-public class FeedbackActivity extends AppCompatActivity {
-=======
 import com.google.common.collect.BiMap;
 
 import java.io.File;
@@ -43,9 +39,8 @@ public class FeedbackActivity<context> extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 102;
     public static final int GALLERY_REQUEST_CODE = 105;
     ImageView selectedImage;
-Button cameraBtn, galleryBtn;
-String currentPhotoPath;
->>>>>>> fix UI feedback Camera vs gallery:c-food-main/app/src/main/java/com/example/c_food_main/FeedbackActivity.java
+    Button cameraBtn, galleryBtn;
+    String currentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
