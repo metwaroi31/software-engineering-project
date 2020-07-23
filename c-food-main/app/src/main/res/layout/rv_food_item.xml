@@ -26,26 +26,33 @@
             <TextView
                 android:id="@+id/food_name_text"
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/cherry_swash_bold"
-                android:text="Food name" />
+                android:text="Food name"
+                android:textColor="#000"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/food_calories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cherry_swash_bold"
-                android:text="Calories: " />
+                android:text="Calories: "
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/like_food_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_button"
             android:fontFamily="@font/bungee"
             android:text="Like"
-            android:textSize="20sp"
-            android:background="@drawable/custom_button"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textSize="20sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -32,7 +32,7 @@ public class CategoriesActivity extends AppCompatActivity {
     private void createCategoryList() {
         list.add(new CategoriesModel(R.drawable.vegetables,"Vegetables"));
         list.add(new CategoriesModel(R.drawable.fruits,"Fruits"));
-        list.add(new CategoriesModel((R.drawable.beans_nuts),"Grains, Beans and Nuts"));
+        list.add(new CategoriesModel((R.drawable.peanut),"Grains, Beans and Nuts"));
         list.add(new CategoriesModel((R.drawable.meat),"Meat"));
         list.add(new CategoriesModel(R.drawable.seafood,"Fish and Seafood"));
         list.add(new CategoriesModel(R.drawable.fast_food,"Fast Food"));
