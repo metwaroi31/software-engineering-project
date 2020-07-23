@@ -72,11 +72,13 @@ public class FoodAdapter2 extends RecyclerView.Adapter<FoodAdapter2.ViewHolder> 
                 public void onClick(View v) {
                     int currentPosition = getAdapterPosition();
                     Log.i("ViewHolderPosition", Integer.toString(currentPosition));
+                    int image = list.get(currentPosition).getImage();
                     String foodName = list.get(currentPosition).getName();
                     //String foodId = li.data().listFoods().items().get(currentPosition).id();
                     Intent intent = new Intent(v.getContext(), FoodDetailActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("Food_Name", foodName);
+                    intent.putExtra("Food_Image",image);
                     //intent.putExtra("Food_id",foodId);
                     v.getContext().startActivity(intent);
                 }
