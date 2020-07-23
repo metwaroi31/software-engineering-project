@@ -87,13 +87,6 @@ public class SearchFoodActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView.LayoutManager rvLiLayoutManager = layoutManager;
         recyclerView.setLayoutManager(rvLiLayoutManager);
-
-        returnedData.data().listFoods().items().forEach(item -> {
-////            foodList.add(item);
-//            foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-//            foodList.add(new FoodModel(R.drawable.com_tam,"com tam","Calories: 50"));
-            Log.i("Foodname", item.name() + item.getClass().toString());
-        });
         FoodAdapter adapter = new FoodAdapter(getApplicationContext(),returnedData);
         recyclerView.setAdapter(adapter);
 

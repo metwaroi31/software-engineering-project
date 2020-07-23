@@ -18,13 +18,13 @@ public class FoodDetailActivity extends AppCompatActivity {
         setContentView(R.layout.food_detail);
         coverImage = findViewById(R.id.food_cover_image);
         String foodName = getIntent().getStringExtra("Food_Name");
-        int image = getIntent().getIntExtra("Food_Image",0);
+//        int image = getIntent().getIntExtra("Food_Image",0);
         String foodID = getIntent().getStringExtra("Food_id");
         String position = getIntent().getStringExtra("Position");
         collapsingToolbarLayout = findViewById(R.id.collapsingToolBar1);
         collapsingToolbarLayout.setTitle(foodName);
 
-        coverImage.setImageResource(image);
+//        coverImage.setImageResource(image);
     }
 
 }
