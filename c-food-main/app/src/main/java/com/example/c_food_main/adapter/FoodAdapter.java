@@ -30,7 +30,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public FoodAdapter(Context context, Response<ListFoodsQuery.Data> list) {
         this.mContext = context;
         this.foodList = list;
-
     }
     @NonNull
     @Override
