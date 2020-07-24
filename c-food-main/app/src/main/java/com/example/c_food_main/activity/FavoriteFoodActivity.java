@@ -98,7 +98,8 @@ public class FavoriteFoodActivity extends AppCompatActivity {
         public void onFailure(@NonNull ApolloException e) {
             Log.i("ERROR OF QUERY", e.toString());
         }
-    }; @Override
+    };
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_food);
