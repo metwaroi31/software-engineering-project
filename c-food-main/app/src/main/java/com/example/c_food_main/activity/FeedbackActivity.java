@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class FeedbackActivity<context> extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class FeedbackActivity<context> extends AppCompatActivity {
     public static final int GALLERY_REQUEST_CODE = 105;
 
     ImageView selectedImage;
-    Button cameraBtn, galleryBtn;
+    Button cameraBtn, galleryBtn, sendFeedBackBtn;
     String currentPhotoPath;
 
     @Override
@@ -51,7 +53,21 @@ public class FeedbackActivity<context> extends AppCompatActivity {
         selectedImage = findViewById(R.id.Displayimage_view);
         cameraBtn = findViewById(R.id.camera_Btn);
         galleryBtn = findViewById(R.id.gallery_Btn);
+        sendFeedBackBtn = findViewById(R.id.send_feedback_btn);
 
+        sendFeedBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toasty.success(getApplicationContext(), "Thanks for your contribution", Toast.LENGTH_SHORT, true).show();
+                    }
+                });
+                Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
