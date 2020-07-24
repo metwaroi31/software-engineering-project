@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 import com.example.c_food_main.R;
 import com.example.c_food_main.model.User;
+
+import es.dmoral.toasty.Toasty;
 
 public class ConfirmCodeActivity extends AppCompatActivity {
     EditText codeEditText;
@@ -40,7 +43,21 @@ public class ConfirmCodeActivity extends AppCompatActivity {
                 code,
                 result -> {
                     if(result.isSignUpComplete()) {
-                        goToMainActivity();
+                        Amplify.Auth.signIn(
+                                newUser.username,
+                                newUser.password,
+                                authResult -> {
+                                    if (authResult.isSignInComplete()) {
+                                        goToMainActivity();
+                                    }
+                                }, error -> {
+                                    runOnUiThread(new Runnable() {
+                                        public void run() {
+                                            Toasty.error(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT, true).show();
+                                        }
+                                    });
+                                    Log.e("AuthQuickstart", error.toString());
+                                });
                     }
                     Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
                 },

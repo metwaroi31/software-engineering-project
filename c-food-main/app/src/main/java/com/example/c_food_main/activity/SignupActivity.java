@@ -76,7 +76,7 @@ public class SignupActivity extends AppCompatActivity {
                 password,
                 AuthSignUpOptions.builder().userAttribute(AuthUserAttributeKey.email(), email).build(),
                 result -> {
-                    User newUser = new User(username,email);
+                    User newUser = new User(username,email, password);
                    addUser(username, password, email);
                     goToConfirmCode(newUser);
                     Log.i("AuthQuickStart", "Result: " + result.toString());

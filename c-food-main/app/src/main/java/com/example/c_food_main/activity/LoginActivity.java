@@ -121,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 //
     private void login() {
+
         String username, password;
         username = usernameEditText.getText().toString();
         password = passwordEditText.getText().toString();
