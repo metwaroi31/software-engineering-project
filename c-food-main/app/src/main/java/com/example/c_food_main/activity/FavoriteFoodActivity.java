@@ -13,6 +13,8 @@ import com.amazonaws.amplify.generated.graphql.ListFoodsQuery;
 import com.amazonaws.amplify.generated.graphql.ListUsersQuery;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClientException;
+import com.amazonaws.mobileconnectors.appsync.ClearCacheOptions;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.amplifyframework.core.Amplify;
 import com.apollographql.apollo.GraphQLCall;
@@ -100,8 +102,10 @@ public class FavoriteFoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_food);
+        list = new ArrayList<>();
         initDatabase();
         queryUser();
+        clearCache();
     }
     public void queryUser() {
         String username = Amplify.Auth.getCurrentUser().getUsername();
@@ -127,5 +131,18 @@ public class FavoriteFoodActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(rvLiLayoutManager);
         FavFoodAdapter adapter = new FavFoodAdapter(getApplicationContext(),list);
         recyclerView.setAdapter(adapter);
+    }
+    private void clearCache () {
+        try {
+            mAWSAppSyncClient.clearCaches(
+                    ClearCacheOptions.builder()
+                            .clearQueries() // clear the query cache
+                            .clearMutations() // clear the mutations queue
+                            .clearSubscriptions() // clear the subscriptions metadata stored for Delta Sync
+                            .build());
+        } catch (AWSAppSyncClientException e) {
+            e.printStackTrace();
+        }
+
     }
 }
