@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardCornerRadius="@dimen/browser_actions_context_menu_min_padding">
+
     <LinearLayout
-        android:padding="10dp"
-        android:weightSum="10"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffcbcb"
+        android:padding="10dp"
+        android:weightSum="10">
+
         <ImageView
             android:id="@+id/food_image"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/com_tam"/>
+            android:src="@drawable/com_tam" />
 
         <LinearLayout
             android:layout_width="150dp"
@@ -32,7 +35,7 @@
                 android:fontFamily="@font/cherry_swash_bold"
                 android:text="Food name"
                 android:textColor="#000"
-                android:textSize="16dp" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/food_calories"
@@ -41,7 +44,7 @@
                 android:fontFamily="@font/cherry_swash_bold"
                 android:text="Calories: "
                 android:textColor="#000"
-                android:textSize="16dp" />
+                android:textSize="18dp" />
         </LinearLayout>
 
         <Button
